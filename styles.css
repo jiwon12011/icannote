@@ -297,17 +297,13 @@ ul {
 
 .hero-obj {
   position: absolute;
-  transform: translate(-50%, -50%); /* 중심 앵커 */
-}
-
-.hero-obj > picture,
-.hero-obj > img {
   display: block;
-  width: 100%;
-  height: auto; /* 비율은 img width/height 속성이 고정(CLS 방지) */
-}
-
-.hero-obj img {
+  /* height:auto가 핵심 — img의 height 속성(presentational hint)을 무력화해야
+     width(clamp)와 aspect-ratio(width/height 속성)로 비율이 유지된다.
+     이게 빠지면 box가 width×height속성으로 잡혀 object-fit:fill로 찌그러짐. */
+  height: auto;
+  /* 센터 앵커는 transform이 아니라 translate 속성으로 → float의 transform과 합성됨 */
+  translate: -50% -50%;
   filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .12));
   animation: floatY var(--dur, 4s) ease-in-out var(--delay, 0s) infinite;
   will-change: transform;
