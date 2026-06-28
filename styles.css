@@ -923,9 +923,9 @@ ul {
   max-width: var(--container-max);
   margin: var(--space-16) auto 0;
   border-radius: 36px;
-  padding: var(--space-14) var(--space-16);
-  /* 이미지 비율(약 2.54:1) 유지하며 좌측 여백 확보 */
-  aspect-ratio: 1989 / 782;
+  padding: var(--space-12) var(--space-16);
+  /* 시안처럼 납작한 밴드: 이미지를 와이드로 크롭(cover) */
+  min-height: 280px;
   display: flex; align-items: center;
   background-image: -webkit-image-set(
     url('assets/cta/cta-rainbow-ring-wide.webp') type('image/webp'),
