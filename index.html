@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>아이캔노트 ICANNOTE — 수업을 더 선명하게, 이해는 더 쉽게</title>
+  <meta name="description" content="아이캔노트(ICANNOTE) — 수업을 더 선명하게, 이해는 더 쉽게." />
+
+  <!-- 히어로 배경 우선 로드 (LCP). href는 실제 사용 URL(.webp)과 일치 -->
+  <link rel="preload" as="image" href="assets/hero/hero-bg.webp" type="image/webp" fetchpriority="high" />
+
+  <!-- Pretendard CDN 연결 워밍업 -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+
+  <!-- Pretendard -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===================== HEADER / NAV (글래스 pill) ===================== -->
+  <header class="site-header">
+    <nav class="nav" aria-label="주요 메뉴">
+      <a class="nav-brand" href="#top">ICANNOTE</a>
+      <ul class="nav-links">
+        <li><a href="#tools">사용 예시</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#cafe">공식카페</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <!-- 떠다니는 3D 장식 오브젝트 (모두 장식 → aria-hidden) -->
+      <div class="hero-objects" aria-hidden="true">
+        <picture><source srcset="assets/hero/chat-bubble.webp" type="image/webp" /><img class="hero-obj obj-chat" src="assets/hero/chat-bubble.png" width="141" height="128" alt="" fetchpriority="low" /></picture>
+        <picture><source srcset="assets/hero/pen-nib.webp" type="image/webp" /><img class="hero-obj obj-pennib" src="assets/hero/pen-nib.png" width="173" height="169" alt="" fetchpriority="low" /></picture>
+        <picture><source srcset="assets/hero/notebook.webp" type="image/webp" /><img class="hero-obj obj-notebook" src="assets/hero/notebook.png" width="388" height="382" alt="" fetchpriority="low" /></picture>
+        <picture><source srcset="assets/hero/star-purple.webp" type="image/webp" /><img class="hero-obj obj-starpur" src="assets/hero/star-purple.png" width="56" height="56" alt="" fetchpriority="low" /></picture>
+        <picture><source srcset="assets/hero/sparkle-yellow.webp" type="image/webp" /><img class="hero-obj obj-sparkle" src="assets/hero/sparkle-yellow.png" width="79" height="83" alt="" fetchpriority="low" /></picture>
+        <picture><source srcset="assets/hero/rainbow-donut.webp" type="image/webp" /><img class="hero-obj obj-donut" src="assets/hero/rainbow-donut.png" width="485" height="411" alt="" fetchpriority="low" /></picture>
+        <picture><source srcset="assets/hero/accent-dashes.webp" type="image/webp" /><img class="hero-obj obj-dashes" src="assets/hero/accent-dashes.png" width="69" height="63" alt="" fetchpriority="low" /></picture>
+        <picture><source srcset="assets/hero/pencil.webp" type="image/webp" /><img class="hero-obj obj-pencil" src="assets/hero/pencil.png" width="135" height="178" alt="" fetchpriority="low" /></picture>
+        <picture><source srcset="assets/hero/eraser.webp" type="image/webp" /><img class="hero-obj obj-eraser" src="assets/hero/eraser.png" width="106" height="117" alt="" fetchpriority="low" /></picture>
+        <picture><source srcset="assets/hero/star-yellow.webp" type="image/webp" /><img class="hero-obj obj-staryel" src="assets/hero/star-yellow.png" width="56" height="58" alt="" fetchpriority="low" /></picture>
+        <img class="hero-obj obj-dot1" src="assets/hero/dot-1.png" width="30" height="30" alt="" fetchpriority="low" />
+        <img class="hero-obj obj-dot2" src="assets/hero/dot-2.png" width="19" height="19" alt="" fetchpriority="low" />
+        <img class="hero-obj obj-dot3" src="assets/hero/dot-3.png" width="26" height="26" alt="" fetchpriority="low" />
+      </div>
+
+      <!-- 중앙 콘텐츠 -->
+      <div class="hero-content">
+        <h1 id="hero-title" class="hero-headline">
+          수업을 더 선명하게,<br />
+          이해는 더 <span class="hl">쉽게</span>
+        </h1>
+        <p class="hero-wordmark">ICANNOTE</p>
+        <a class="hero-cta" href="#download">다운로드 받기</a>
+      </div>
+
+      <!-- 히어로 → 다음 섹션 곡선 전환 -->
+      <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M0,64 C240,112 480,112 720,80 C960,48 1200,16 1440,48 L1440,120 L0,120 Z" fill="#FFFFFF" />
+      </svg>
+    </section>
+
+    <!-- ===================== 이후 섹션 스텁 (motion/copy 추후) ===================== -->
+    <section id="why">
+      <!-- TODO: 카피 들어갈 자리 -->
+    </section>
+
+    <section id="tools">
+      <!-- TODO: 카피 들어갈 자리 -->
+    </section>
+
+    <section class="stats">
+      <!-- TODO: 카피 들어갈 자리 -->
+    </section>
+
+    <section id="flow" class="dark">
+      <!-- TODO: 카피 들어갈 자리 -->
+    </section>
+
+    <section id="series">
+      <!-- TODO: 카피 들어갈 자리 -->
+    </section>
+  </main>
+
+  <footer>
+    <!-- TODO: 카피 들어갈 자리 -->
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
