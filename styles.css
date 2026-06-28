@@ -324,7 +324,7 @@ ul {
 .obj-dot1     { left: 9%;  top: 33%; width: clamp(11px, 1.2vw, 18px);   --dur: 4.1s; --delay: -.5s;  z-index: 3; }
 
 /* 우측 그룹 */
-.obj-donut    { left: 80%; top: 29%; width: clamp(176px, 18.5vw, 270px);--dur: 4.8s; --delay: -.3s;  z-index: 2; }
+.obj-donut    { left: 76%; top: 29%; width: clamp(200px, 21vw, 310px);  --dur: 4.8s; --delay: -.3s;  z-index: 2; }
 .obj-dashes   { left: 62%; top: 25%; width: clamp(40px, 4.4vw, 60px);   --dur: 3.4s; --delay: -1.3s; z-index: 3; }
 .obj-pencil   { left: 85%; top: 54%; width: clamp(74px, 8vw, 112px);    --dur: 4.4s; --delay: -.6s;  z-index: 3; }
 .obj-eraser   { left: 89%; top: 66%; width: clamp(64px, 6.8vw, 98px);   --dur: 3.9s; --delay: -1.8s; z-index: 3; }
