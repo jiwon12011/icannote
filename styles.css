@@ -678,22 +678,13 @@ ul {
   gap: var(--space-6);
 }
 .stat-card {
-  position: relative;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, .05);
-  border-radius: 28px;
-  padding: var(--space-10) var(--space-6) var(--space-8);
+  background: transparent;
+  padding: var(--space-4);
   color: var(--color-text-dark);
   text-align: center;
-  box-shadow: var(--shadow-md);
   display: flex; flex-direction: column; align-items: center; gap: 6px;
 }
-.stat-card__index {
-  position: absolute; top: var(--space-5); left: var(--space-6);
-  font-size: 14px; font-weight: 800; letter-spacing: .06em;
-  color: rgba(0, 0, 0, .26);
-}
-/* 아이콘 뒤에만 주황 라운드 박스 */
+/* 아이콘 뒤 주황 라운드 박스 */
 .stat-card__icon {
   width: 104px; height: 104px;
   border-radius: 26px;
@@ -708,7 +699,9 @@ ul {
 }
 .stat-card__num {
   font-size: clamp(34px, 4vw, 48px); font-weight: 900; line-height: 1.1;
-  letter-spacing: -.01em; color: var(--color-text-dark);
+  letter-spacing: -.01em;
+  background: linear-gradient(135deg, var(--color-orange-main), var(--color-orange-deep));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .stat-card__label { font-size: 17px; font-weight: 700; color: var(--color-text-dark); }
 .stat-card__desc { font-size: 14px; color: #8a8a8a; }
