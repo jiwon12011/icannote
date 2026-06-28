@@ -295,18 +295,22 @@ ul {
   pointer-events: none;
 }
 
+/* .hero-obj = 래퍼 div. width는 .obj-*(clamp)가 div에 준다. 센터 앵커는
+   transform이 아니라 translate 속성으로 → float의 transform(translateY)과 합성됨. */
 .hero-obj {
   position: absolute;
-  display: block;
-  /* height:auto가 핵심 — img의 height 속성(presentational hint)을 무력화해야
-     width(clamp)와 aspect-ratio(width/height 속성)로 비율이 유지된다.
-     이게 빠지면 box가 width×height속성으로 잡혀 object-fit:fill로 찌그러짐. */
-  height: auto;
-  /* 센터 앵커는 transform이 아니라 translate 속성으로 → float의 transform과 합성됨 */
   translate: -50% -50%;
-  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .12));
   animation: floatY var(--dur, 4s) ease-in-out var(--delay, 0s) infinite;
   will-change: transform;
+}
+
+/* 안의 img는 div 폭을 100% 채우고 height:auto로 비율 유지(찌그러짐 방지) */
+.hero-obj picture { display: block; }
+.hero-obj img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .12));
 }
 
 @keyframes floatY {
@@ -408,7 +412,7 @@ ul {
    모션 민감 사용자 — float 정지
    ========================================================= */
 @media (prefers-reduced-motion: reduce) {
-  .hero-obj img {
+  .hero-obj {
     animation: none;
   }
 
