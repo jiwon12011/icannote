@@ -184,7 +184,15 @@ ul {
 
   padding: var(--space-20) var(--container-pad);
 
-  background-image: url('assets/hero/hero-bg.png');
+  /* WebP 우선, PNG 폴백. preload href(.webp)와 일치해야 캐시 재사용 */
+  background-image: -webkit-image-set(
+    url('assets/hero/hero-bg.webp') type('image/webp'),
+    url('assets/hero/hero-bg.png') type('image/png')
+  );
+  background-image: image-set(
+    url('assets/hero/hero-bg.webp') type('image/webp'),
+    url('assets/hero/hero-bg.png') type('image/png')
+  );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -286,6 +294,14 @@ ul {
 .obj-staryel  { right: 30%; bottom: 14%; width: 46px;  --dur: 3.1s; --delay: -2.3s; z-index: 2; }
 .obj-dot1     { right: 27%; top: 12%;    width: 14px;  --dur: 4.1s; --delay: -.5s; z-index: 2; }
 .obj-dot3     { right: 33%; top: 30%;    width: 16px;  --dur: 4.7s; --delay: -1.9s; z-index: 2; }
+
+/* 초소형 장식은 레이어 승격 불필요 → 합성 메모리 절약 (P4) */
+.obj-dot1,
+.obj-dot2,
+.obj-dot3,
+.obj-dashes {
+  will-change: auto;
+}
 
 /* =========================================================
    히어로 → 다음 섹션 곡선 전환
