@@ -151,7 +151,7 @@ ul {
 
 .nav-brand {
   font-weight: 800;
-  font-size: 18px;
+  font-size: clamp(18px, 1.4vw, 26px);
   letter-spacing: .04em;
   color: var(--color-text-light);
   text-shadow: 0 1px 2px rgba(0, 0, 0, .12);
@@ -164,7 +164,7 @@ ul {
 }
 
 .nav-links a {
-  font-size: 15px;
+  font-size: clamp(15px, 1.1vw, 20px);
   font-weight: 500;
   color: var(--color-text-light);
   text-shadow: 0 1px 2px rgba(0, 0, 0, .12);
@@ -239,7 +239,7 @@ ul {
 }
 
 .hero-headline {
-  font-size: clamp(28px, 3.4vw, 44px);
+  font-size: clamp(28px, 3.4vw, 62px);
   font-weight: 700;
   line-height: 1.32;
   color: var(--color-text-navy);
@@ -252,7 +252,7 @@ ul {
 /* 장식용 큰 워드마크 (의미는 h1이 가짐 → 여기는 p) */
 .hero-wordmark {
   /* 레퍼런스 비율(폭의 ~32%)에 맞춤. 모바일에서도 ICANNOTE 8글자 한 줄 유지 */
-  font-size: clamp(38px, 6vw, 92px);
+  font-size: clamp(38px, 6vw, 130px);
   font-weight: 900;
   line-height: 1;
   letter-spacing: .04em;
@@ -267,7 +267,7 @@ ul {
   padding: var(--space-4) var(--space-10);
   border-radius: 999px;
 
-  font-size: 16px;
+  font-size: clamp(16px, 1.2vw, 22px);
   font-weight: 700;
   color: var(--color-text-dark);
   background: var(--color-bg-white);
