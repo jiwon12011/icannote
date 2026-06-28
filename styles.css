@@ -662,3 +662,121 @@ ul {
   .tools-demo { order: -1; }           /* 모바일/태블릿: 데모 먼저 */
   .tools-list { max-height: 300px; }
 }
+
+/* =========================================================
+   플로우 섹션 (말풍선 + 3단계 카드) — 밝은 톤, 넉넉한 간격
+   ========================================================= */
+.flow {
+  background: linear-gradient(180deg, #FFF7EE 0%, var(--color-cream) 100%);
+  padding: var(--space-32) var(--container-pad);
+}
+
+/* 헤더 (말풍선 + 타이틀) */
+.flow-head {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto var(--space-20);
+  padding-top: var(--space-16);
+  text-align: center;
+}
+.flow-bubble {
+  position: absolute; top: 0;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .05);
+  border-radius: 18px;
+  padding: 12px 18px;
+  font-size: 14px; font-weight: 600; color: #5f5f5f;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+}
+.flow-bubble::after {
+  content: ""; position: absolute; bottom: -7px;
+  width: 14px; height: 14px; background: #fff;
+  border-right: 1px solid rgba(0, 0, 0, .05);
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
+  transform: rotate(45deg);
+}
+.flow-bubble--l { left: 2%; transform: rotate(-3deg); }
+.flow-bubble--l::after { left: 26px; }
+.flow-bubble--r { right: 2%; top: var(--space-6); transform: rotate(3deg); }
+.flow-bubble--r::after { right: 26px; }
+
+.flow-title {
+  font-size: clamp(28px, 3.4vw, 44px); font-weight: 800; line-height: 1.32;
+  color: var(--color-text-dark);
+}
+.flow-title .hl { color: var(--color-orange-deep); }
+.flow-desc {
+  margin-top: var(--space-5);
+  font-size: 15px; line-height: 1.8; color: #7a7a7a;
+  max-width: 48ch; margin-inline: auto;
+}
+
+/* 큰 카드 */
+.flow-card {
+  max-width: 940px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .05);
+  border-radius: 32px;
+  padding: var(--space-12);
+  box-shadow: 0 24px 60px rgba(230, 74, 25, .10);
+}
+.flow-card__title {
+  text-align: center;
+  font-size: 18px; font-weight: 800; color: var(--color-text-dark);
+  margin-bottom: var(--space-12);
+}
+.flow-card__title::before,
+.flow-card__title::after { content: "✦"; color: var(--color-orange-light); margin: 0 12px; font-size: 14px; }
+
+/* 3단계 */
+.flow-steps { display: flex; flex-direction: column; gap: var(--space-10); }
+.flow-step {
+  position: relative;
+  display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: var(--space-8);
+  background: #FFFBF5;
+  border: 1px solid rgba(0, 0, 0, .04);
+  border-radius: 24px;
+  padding: var(--space-8) var(--space-10);
+}
+/* 단계 사이 점선 화살표 */
+.flow-step:not(:last-child)::after {
+  content: "";
+  position: absolute; left: 50%; bottom: calc(var(--space-10) * -1 + 4px);
+  width: 2px; height: calc(var(--space-10) - 8px);
+  background: repeating-linear-gradient(var(--color-orange-light) 0 4px, transparent 4px 9px);
+  transform: translateX(-50%);
+}
+.flow-step__num {
+  display: inline-grid; place-items: center;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-orange-main), var(--color-orange-deep));
+  color: #fff; font-weight: 800; font-size: 17px;
+  box-shadow: var(--shadow-button);
+  margin-bottom: var(--space-5);
+}
+.flow-step__title { font-size: clamp(19px, 1.6vw, 23px); font-weight: 800; color: var(--color-text-dark); margin-bottom: var(--space-3); }
+.flow-step__desc { font-size: 15px; line-height: 1.75; color: #6f6f6f; }
+.flow-step__media { display: grid; place-items: center; }
+.flow-step__media img { width: 100%; height: auto; object-fit: contain; max-height: 210px; }
+
+/* 하단 강조 */
+.flow-outro {
+  text-align: center; margin-top: var(--space-20);
+  font-size: clamp(22px, 2.4vw, 30px); font-weight: 800; line-height: 1.5;
+  color: var(--color-text-dark);
+}
+.flow-outro .hl { color: var(--color-orange-deep); }
+
+/* 반응형 */
+@media (max-width: 809px) {
+  .flow { padding: var(--space-24) var(--container-pad); }
+  .flow-head { padding-top: 0; margin-bottom: var(--space-12); }
+  .flow-bubble { position: static; display: inline-block; transform: none; margin: 0 4px var(--space-3); white-space: normal; }
+  .flow-bubble::after { display: none; }
+  .flow-card { padding: var(--space-6); }
+  .flow-step { grid-template-columns: 1fr; gap: var(--space-5); padding: var(--space-6); text-align: center; }
+  .flow-step__num { margin-inline: auto; }
+  .flow-step__media { order: -1; }
+}
