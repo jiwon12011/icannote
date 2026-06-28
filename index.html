@@ -148,8 +148,78 @@
       </div>
     </section>
 
-    <section id="tools">
-      <!-- TODO: 카피 들어갈 자리 -->
+    <section id="tools" class="tools" aria-labelledby="tools-title">
+      <div class="tools-head">
+        <p class="tools-label">직관적인 도구, 완벽한 수업</p>
+        <h2 id="tools-title" class="tools-heading">필요한 도구를 모두 담다</h2>
+        <p class="tools-desc">아이캔노트는 판서, 도형, 그래프, 텍스트 입력까지 수업에 필요한 기능을 한곳에 담아 설명 흐름을 끊지 않고 자연스럽게 수업을 이어갈 수 있도록 돕습니다.</p>
+      </div>
+
+      <div class="tools-inner">
+        <ul class="tools-list" role="tablist" aria-label="아이캔노트 도구 목록">
+            <li role="presentation">
+              <button type="button" class="tool-item is-active" role="tab" aria-selected="true" data-gif="assets/tool-gifs/tool-01-pen-highlighter.gif" data-title="펜 & 형광펜">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-01-pen-highlighter.webp" type="image/webp" /><img src="assets/tool-list/tool-01-pen-highlighter.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">펜 &amp; 형광펜</span><span class="tool-item__line">자연스럽고 부드러운 필기</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-02-pointer.gif" data-title="포인터 도구">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-02-pointer.webp" type="image/webp" /><img src="assets/tool-list/tool-02-pointer.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">포인터 도구</span><span class="tool-item__line">시선을 모아주는 포인터</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-03-shape-tool.gif" data-title="도형 도구">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-03-shape-tool.webp" type="image/webp" /><img src="assets/tool-list/tool-03-shape-tool.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">도형 도구</span><span class="tool-item__line">원형, 삼각형, 다각형까지</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-04-graph-tool.gif" data-title="그래프 도구">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-04-graph-tool.webp" type="image/webp" /><img src="assets/tool-list/tool-04-graph-tool.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">그래프 도구</span><span class="tool-item__line">수학·과학 수업에 유용한 그래프</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-05-smart-shape-correction.gif" data-title="스마트 도형 보정">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-05-smart-shape-correction.webp" type="image/webp" /><img src="assets/tool-list/tool-05-smart-shape-correction.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">스마트 도형 보정</span><span class="tool-item__line">손으로 그려도 깔끔하게 자동 보정</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-06-select-edit.gif" data-title="선택 & 편집">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-06-select-edit.webp" type="image/webp" /><img src="assets/tool-list/tool-06-select-edit.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">선택 &amp; 편집</span><span class="tool-item__line">크기 조절과 위치 이동도 자유롭게</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-07-eraser.gif" data-title="지우개 도구">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-07-eraser.webp" type="image/webp" /><img src="assets/tool-list/tool-07-eraser.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">지우개 도구</span><span class="tool-item__line">상황에 맞게 지우는 다양한 방식</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-08-hide-reveal.gif" data-title="가리기 / 열기 기능">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-08-hide-reveal.webp" type="image/webp" /><img src="assets/tool-list/tool-08-hide-reveal.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">가리기 / 열기 기능</span><span class="tool-item__line">정답이나 핵심을 단계적으로 공개</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-09-text-input.gif" data-title="텍스트 입력">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-09-text-input.webp" type="image/webp" /><img src="assets/tool-list/tool-09-text-input.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">텍스트 입력</span><span class="tool-item__line">필기와 타이핑을 함께</span></span>
+              </button>
+            </li>
+        </ul>
+
+        <div class="tools-demo">
+          <div class="tools-demo__frame">
+            <img id="toolDemoGif" class="tools-demo__gif" src="assets/tool-gifs/tool-01-pen-highlighter.gif" alt="펜 & 형광펜 데모" />
+          </div>
+          <p class="tools-demo__caption" id="toolDemoCaption">펜과 형광펜으로 핵심 내용을 쓰고, 밑줄 치고, 강조할 수 있습니다.</p>
+        </div>
+      </div>
     </section>
 
     <section class="stats">
