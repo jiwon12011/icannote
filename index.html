@@ -38,19 +38,19 @@
 
       <!-- 떠다니는 3D 장식 오브젝트 (모두 장식 → aria-hidden) -->
       <div class="hero-objects" aria-hidden="true">
-        <div class="hero-obj obj-chat"><picture><img src="assets/hero/chat 3d.png" width="141" height="128" alt="" fetchpriority="low" /></picture></div>
-        <div class="hero-obj obj-pennib"><picture><img src="assets/hero/pen tool.png" width="173" height="169" alt="" fetchpriority="low" /></picture></div>
-        <div class="hero-obj obj-notebook"><picture><img src="assets/hero/notebook 3d.png" width="388" height="382" alt="" fetchpriority="low" /></picture></div>
-        <div class="hero-obj obj-starpur"><picture><img src="assets/hero/purple star.png" width="56" height="56" alt="" fetchpriority="low" /></picture></div>
-        <div class="hero-obj obj-sparkle"><picture><img src="assets/hero/yellow star.png" width="56" height="58" alt="" fetchpriority="low" /></picture></div>
-        <div class="hero-obj obj-donut"><picture><img src="assets/hero/donut 3d.png" width="485" height="411" alt="" fetchpriority="low" /></picture></div>
-        <div class="hero-obj obj-dashes"><picture><img src="assets/hero/dashes.png" width="69" height="63" alt="" fetchpriority="low" /></picture></div>
-        <div class="hero-obj obj-pencil"><picture><img src="assets/hero/pencil 3d.png" width="135" height="178" alt="" fetchpriority="low" /></picture></div>
-        <div class="hero-obj obj-eraser"><picture><img src="assets/hero/eraser 3d.png" width="106" height="117" alt="" fetchpriority="low" /></picture></div>
-        <div class="hero-obj obj-staryel"><picture><img src="assets/hero/yellow star.png" width="56" height="58" alt="" fetchpriority="low" /></picture></div>
-        <div class="hero-obj obj-dot1"><img src="assets/hero/white circle.png" width="30" height="30" alt="" fetchpriority="low" /></div>
-        <div class="hero-obj obj-dot2"><img src="assets/hero/white circle.png" width="19" height="19" alt="" fetchpriority="low" /></div>
-        <div class="hero-obj obj-dot3"><img src="assets/hero/orange circle.png" width="26" height="26" alt="" fetchpriority="low" /></div>
+        <div class="hero-obj obj-chat"><picture><source srcset="assets/hero/chat-bubble.webp" type="image/webp" /><img src="assets/hero/chat-bubble.png" width="141" height="128" alt="" fetchpriority="low" /></picture></div>
+        <div class="hero-obj obj-pennib"><picture><source srcset="assets/hero/pen-nib.webp" type="image/webp" /><img src="assets/hero/pen-nib.png" width="173" height="169" alt="" fetchpriority="low" /></picture></div>
+        <div class="hero-obj obj-notebook"><picture><source srcset="assets/hero/notebook.webp" type="image/webp" /><img src="assets/hero/notebook.png" width="388" height="382" alt="" fetchpriority="low" /></picture></div>
+        <div class="hero-obj obj-starpur"><picture><source srcset="assets/hero/star-purple.webp" type="image/webp" /><img src="assets/hero/star-purple.png" width="56" height="56" alt="" fetchpriority="low" /></picture></div>
+        <div class="hero-obj obj-sparkle"><picture><source srcset="assets/hero/sparkle-yellow.webp" type="image/webp" /><img src="assets/hero/sparkle-yellow.png" width="79" height="83" alt="" fetchpriority="low" /></picture></div>
+        <div class="hero-obj obj-donut"><picture><source srcset="assets/hero/rainbow-donut.webp" type="image/webp" /><img src="assets/hero/rainbow-donut.png" width="485" height="411" alt="" fetchpriority="low" /></picture></div>
+        <div class="hero-obj obj-dashes"><picture><source srcset="assets/hero/accent-dashes.webp" type="image/webp" /><img src="assets/hero/accent-dashes.png" width="69" height="63" alt="" fetchpriority="low" /></picture></div>
+        <div class="hero-obj obj-pencil"><picture><source srcset="assets/hero/pencil.webp" type="image/webp" /><img src="assets/hero/pencil.png" width="135" height="178" alt="" fetchpriority="low" /></picture></div>
+        <div class="hero-obj obj-eraser"><picture><source srcset="assets/hero/eraser.webp" type="image/webp" /><img src="assets/hero/eraser.png" width="106" height="117" alt="" fetchpriority="low" /></picture></div>
+        <div class="hero-obj obj-staryel"><picture><source srcset="assets/hero/star-yellow.webp" type="image/webp" /><img src="assets/hero/star-yellow.png" width="56" height="58" alt="" fetchpriority="low" /></picture></div>
+        <div class="hero-obj obj-dot1"><img src="assets/hero/dot-1.png" width="30" height="30" alt="" fetchpriority="low" /></div>
+        <div class="hero-obj obj-dot2"><img src="assets/hero/dot-2.png" width="19" height="19" alt="" fetchpriority="low" /></div>
+        <div class="hero-obj obj-dot3"><img src="assets/hero/dot-3.png" width="26" height="26" alt="" fetchpriority="low" /></div>
       </div>
 
       <!-- 중앙 콘텐츠 -->
@@ -148,25 +148,210 @@
       </div>
     </section>
 
-    <section id="tools">
-      <!-- TODO: 카피 들어갈 자리 -->
+    <section id="tools" class="tools" aria-labelledby="tools-title">
+      <div class="tools-head">
+        <p class="tools-label">직관적인 도구, 완벽한 수업</p>
+        <h2 id="tools-title" class="tools-heading">필요한 도구를 모두 담다</h2>
+        <p class="tools-desc">아이캔노트는 판서, 도형, 그래프, 텍스트 입력까지 수업에 필요한 기능을 한곳에 담아 설명 흐름을 끊지 않고 자연스럽게 수업을 이어갈 수 있도록 돕습니다.</p>
+      </div>
+
+      <div class="tools-inner">
+        <ul class="tools-list" role="tablist" aria-label="아이캔노트 도구 목록">
+            <li role="presentation">
+              <button type="button" class="tool-item is-active" role="tab" aria-selected="true" data-gif="assets/tool-gifs/tool-01-pen-highlighter.gif" data-title="펜 & 형광펜">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-01-pen-highlighter.webp" type="image/webp" /><img src="assets/tool-list/tool-01-pen-highlighter.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">펜 &amp; 형광펜</span><span class="tool-item__line">자연스럽고 부드러운 필기</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-02-pointer.gif" data-title="포인터 도구">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-02-pointer.webp" type="image/webp" /><img src="assets/tool-list/tool-02-pointer.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">포인터 도구</span><span class="tool-item__line">시선을 모아주는 포인터</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-03-shape-tool.gif" data-title="도형 도구">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-03-shape-tool.webp" type="image/webp" /><img src="assets/tool-list/tool-03-shape-tool.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">도형 도구</span><span class="tool-item__line">원형, 삼각형, 다각형까지</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-04-graph-tool.gif" data-title="그래프 도구">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-04-graph-tool.webp" type="image/webp" /><img src="assets/tool-list/tool-04-graph-tool.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">그래프 도구</span><span class="tool-item__line">수학·과학 수업에 유용한 그래프</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-05-smart-shape-correction.gif" data-title="스마트 도형 보정">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-05-smart-shape-correction.webp" type="image/webp" /><img src="assets/tool-list/tool-05-smart-shape-correction.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">스마트 도형 보정</span><span class="tool-item__line">손으로 그려도 깔끔하게 자동 보정</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-06-select-edit.gif" data-title="선택 & 편집">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-06-select-edit.webp" type="image/webp" /><img src="assets/tool-list/tool-06-select-edit.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">선택 &amp; 편집</span><span class="tool-item__line">크기 조절과 위치 이동도 자유롭게</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-07-eraser.gif" data-title="지우개 도구">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-07-eraser.webp" type="image/webp" /><img src="assets/tool-list/tool-07-eraser.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">지우개 도구</span><span class="tool-item__line">상황에 맞게 지우는 다양한 방식</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-08-hide-reveal.gif" data-title="가리기 / 열기 기능">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-08-hide-reveal.webp" type="image/webp" /><img src="assets/tool-list/tool-08-hide-reveal.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">가리기 / 열기 기능</span><span class="tool-item__line">정답이나 핵심을 단계적으로 공개</span></span>
+              </button>
+            </li>
+            <li role="presentation">
+              <button type="button" class="tool-item" role="tab" aria-selected="false" data-gif="assets/tool-gifs/tool-09-text-input.gif" data-title="텍스트 입력">
+                <span class="tool-item__icon"><picture><source srcset="assets/tool-list/tool-09-text-input.webp" type="image/webp" /><img src="assets/tool-list/tool-09-text-input.png" alt="" loading="lazy" /></picture></span>
+                <span class="tool-item__body"><span class="tool-item__title">텍스트 입력</span><span class="tool-item__line">필기와 타이핑을 함께</span></span>
+              </button>
+            </li>
+        </ul>
+
+        <div class="tools-demo">
+          <div class="tools-demo__frame">
+            <img id="toolDemoGif" class="tools-demo__gif" src="assets/tool-gifs/tool-01-pen-highlighter.gif" alt="펜 & 형광펜 데모" />
+          </div>
+          <p class="tools-demo__caption" id="toolDemoCaption">펜과 형광펜으로 핵심 내용을 쓰고, 밑줄 치고, 강조할 수 있습니다.</p>
+        </div>
+      </div>
     </section>
 
-    <section class="stats">
-      <!-- TODO: 카피 들어갈 자리 -->
+    <section class="stats" aria-label="아이캔노트 주요 지표">
+      <div class="stats-grid">
+        <article class="stat-card">
+          <picture class="stat-card__icon"><source srcset="assets/stats/stat-01-community-members.webp" type="image/webp" /><img src="assets/stats/stat-01-community-members.png" alt="" loading="lazy" /></picture>
+          <p class="stat-card__num">9만+</p>
+          <p class="stat-card__label">공식카페 가입자</p>
+          <p class="stat-card__desc">공식카페 커뮤니티</p>
+        </article>
+
+        <article class="stat-card">
+          <picture class="stat-card__icon"><source srcset="assets/stats/stat-02-operation-years.webp" type="image/webp" /><img src="assets/stats/stat-02-operation-years.png" alt="" loading="lazy" /></picture>
+          <p class="stat-card__num">10년+</p>
+          <p class="stat-card__label">운영 기간</p>
+          <p class="stat-card__desc">교육 현장에서 이어온 판서 도구</p>
+        </article>
+
+        <article class="stat-card">
+          <picture class="stat-card__icon"><source srcset="assets/stats/stat-03-classroom-tools.webp" type="image/webp" /><img src="assets/stats/stat-03-classroom-tools.png" alt="" loading="lazy" /></picture>
+          <p class="stat-card__num">18가지</p>
+          <p class="stat-card__label">수업 도구 지원</p>
+          <p class="stat-card__desc">펜·도형·그래프·텍스트까지</p>
+        </article>
+      </div>
     </section>
 
-    <section id="flow" class="dark">
-      <!-- TODO: 카피 들어갈 자리 -->
+    <section id="flow" class="flow" aria-labelledby="flow-title">
+      <div class="flow-head">
+        <span class="flow-bubble flow-bubble--l">자료 위에 바로 쓸 수 있나요?</span>
+        <span class="flow-bubble flow-bubble--r">수업이 끝난 뒤에도 공유할 수 있나요?</span>
+        <h2 id="flow-title" class="flow-title">판서부터 녹화·공유까지<br /><span class="hl">수업의 흐름을 한 번에</span></h2>
+        <p class="flow-desc">아이캔노트는 수업 자료 위 판서부터 저장, 녹화, 공유까지 자연스럽게 이어지는 디지털 판서 프로그램입니다.</p>
+      </div>
+
+      <div class="flow-card">
+        <p class="flow-card__title">수업 자료가 곧 판서 노트가 되는 흐름</p>
+
+        <ol class="flow-steps">
+          <li class="flow-step">
+            <div class="flow-step__text">
+              <span class="flow-step__num">01</span>
+              <h3 class="flow-step__title">자료 불러오기</h3>
+              <p class="flow-step__desc">PDF, PPT, 이미지 자료를<br />아이캔노트에 불러와요.</p>
+            </div>
+            <picture class="flow-step__media">
+              <source srcset="assets/flow/flow-01-import-materials.webp" type="image/webp" />
+              <img src="assets/flow/flow-01-import-materials.png" alt="" loading="lazy" decoding="async" />
+            </picture>
+          </li>
+
+          <li class="flow-step">
+            <div class="flow-step__text">
+              <span class="flow-step__num">02</span>
+              <h3 class="flow-step__title">바로 판서하기</h3>
+              <p class="flow-step__desc">펜, 도형, 포인터로<br />수업 중 핵심을 설명해요.</p>
+            </div>
+            <picture class="flow-step__media">
+              <source srcset="assets/flow/flow-02-annotate-materials.webp" type="image/webp" />
+              <img src="assets/flow/flow-02-annotate-materials.png" alt="" loading="lazy" decoding="async" />
+            </picture>
+          </li>
+
+          <li class="flow-step">
+            <div class="flow-step__text">
+              <span class="flow-step__num">03</span>
+              <h3 class="flow-step__title">저장·녹화·공유</h3>
+              <p class="flow-step__desc">판서 내용을 저장하고<br />녹화 영상이나 복습 자료로 공유해요.</p>
+            </div>
+            <picture class="flow-step__media">
+              <source srcset="assets/flow/flow-03-save-record-share.webp" type="image/webp" />
+              <img src="assets/flow/flow-03-save-record-share.png" alt="" loading="lazy" decoding="async" />
+            </picture>
+          </li>
+        </ol>
+      </div>
+
+      <p class="flow-outro">설명하는 순간은 <span class="hl">더 선명하게</span>, 남기는 과정은 <span class="hl">더 간편하게</span>.</p>
     </section>
 
-    <section id="series">
-      <!-- TODO: 카피 들어갈 자리 -->
+    <section id="series" class="series" aria-labelledby="series-title">
+      <span class="series-badge">아이캔노트 시리즈</span>
+      <h2 id="series-title" class="series-title">다양한 선생님들의 수업을 위한 선택</h2>
+
+      <div class="series-grid">
+        <article class="series-card series-card--featured">
+          <span class="series-card__icon"><img src="assets/logos/logo-01-note-pencil.png" alt="" loading="lazy" width="120" height="120" /></span>
+          <h3 class="series-card__name">아이캔노트</h3>
+          <p class="series-card__desc">수업 자료를 불러와 그 위에 바로 판서하고 저장할 수 있는 디지털 판서 프로그램입니다.</p>
+          <a class="series-card__btn" href="#download">자세히 보기 <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="series-card">
+          <span class="series-card__icon"><img src="assets/logos/logo-02-screen-pencil.png" alt="" loading="lazy" width="120" height="120" /></span>
+          <h3 class="series-card__name">아이캔스크린</h3>
+          <p class="series-card__desc">컴퓨터 화면 위에 바로 필기하며 영상, 문서, 웹페이지를 설명할 수 있는 화면 판서 도구입니다.</p>
+          <a class="series-card__btn" href="#download">자세히 보기 <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="series-card">
+          <span class="series-card__icon"><img src="assets/logos/logo-03-rainbow-play.png" alt="" loading="lazy" width="120" height="120" /></span>
+          <h3 class="series-card__name">아이캔VOD</h3>
+          <p class="series-card__desc">녹화한 강의 영상을 업로드하고, 수강 영상과 시청자를 손쉽게 관리하는 VOD 서비스입니다.</p>
+          <a class="series-card__btn" href="#download">자세히 보기 <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="series-card">
+          <span class="series-card__icon"><img src="assets/logos/logo-04-round-symbol.png" alt="" loading="lazy" width="120" height="120" /></span>
+          <h3 class="series-card__name">아이캔줌잇</h3>
+          <p class="series-card__desc">화면을 확대하고 필요한 부분에 바로 표시하며 설명을 돕는 수업용 화면 강조 도구입니다.</p>
+          <a class="series-card__btn" href="#download">자세히 보기 <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+
+      <div class="cta" id="download">
+        <div class="cta__text">
+          <h2 class="cta__title">지금 바로 아이캔노트를 시작해 보세요!</h2>
+          <p class="cta__desc">더 선명한 수업, 더 쉬운 이해가 시작됩니다.</p>
+          <div class="cta__actions">
+            <a class="cta__btn" href="#download"><span aria-hidden="true">↓</span> 무료 다운로드</a>
+            <a class="cta__link" href="#tools">사용 예시 보기 <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <!-- TODO: 카피 들어갈 자리 -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span class="site-footer__logo">ICANNOTE</span>
+      <span class="site-footer__copy">Copyright © ICANNOTE. All rights Reserved.</span>
+    </div>
   </footer>
 
   <script src="main.js"></script>
