@@ -583,36 +583,49 @@ ul {
 
 /* 좌측 스크롤 리스트 — 박스 안에서만 스크롤, 약 3개 보임 */
 .tools-list {
-  display: flex; flex-direction: column; gap: var(--space-3);
-  max-height: 318px;            /* 약 3개 + gap */
+  display: flex; flex-direction: column; gap: var(--space-4);
+  max-height: 372px;            /* 큰 카드 약 3개 + 다음 카드 살짝 */
   overflow-y: auto;
-  padding: 2px var(--space-3) 2px 2px;
+  padding: 2px var(--space-4) 2px 2px;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, .18) transparent;
+  scrollbar-color: rgba(255, 150, 95, .5) transparent;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
 }
-.tools-list::-webkit-scrollbar { width: 6px; }
-.tools-list::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, .16); border-radius: 999px; }
-.tools-list::-webkit-scrollbar-track { background: transparent; }
+/* 귀여운 스크롤바 — 소프트한 파스텔 주황(반투명) 알약, 트랙은 투명 */
+.tools-list::-webkit-scrollbar { width: 8px; }
+.tools-list::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 8px 0;
+}
+.tools-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 150, 95, .45);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.tools-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 132, 76, .62);
+  background-clip: padding-box;
+}
 
 .tool-item {
   width: 100%;
-  display: flex; align-items: center; gap: var(--space-4);
-  padding: var(--space-4) var(--space-5);
+  display: flex; align-items: center; gap: var(--space-5);
+  padding: var(--space-5) var(--space-6);
   border: 1px solid rgba(0, 0, 0, .05);
-  border-radius: 18px;
+  border-radius: 22px;
   background: #fff;
   text-align: left; cursor: pointer;
   box-shadow: var(--shadow-sm);
   transition: background .2s ease, border-color .2s ease, transform .15s ease, box-shadow .2s ease;
 }
-.tool-item:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
-.tool-item__icon { flex: none; width: 44px; height: 44px; display: grid; place-items: center; }
+.tool-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.tool-item__icon { flex: none; width: 56px; height: 56px; display: grid; place-items: center; }
 .tool-item__icon img { width: 100%; height: 100%; object-fit: contain; }
-.tool-item__body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-.tool-item__title { font-size: 16px; font-weight: 700; color: var(--color-text-dark); }
-.tool-item__line { font-size: 13px; color: #7c7c7c; }
+.tool-item__body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.tool-item__title { font-size: 18px; font-weight: 700; color: var(--color-text-dark); }
+.tool-item__line { font-size: 14px; color: #7c7c7c; }
 
 .tool-item.is-active {
   background: linear-gradient(135deg, var(--color-orange-main), var(--color-orange-deep));
