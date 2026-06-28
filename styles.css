@@ -20,6 +20,12 @@
   --color-glass-surface: rgba(255, 255, 255, 0.15);
   --color-glass-border: rgba(255, 255, 255, 0.35);
 
+  /* 말풍선 아래로 이어지는 크림 톤(레퍼런스 바닥 샘플 #FEF7F0). 다음 섹션 배경과 연결됨 */
+  --color-cream: #FEF7F0;
+
+  /* 히어로 오렌지 말풍선 실루엣 마스크: 뾰족한 꼬리 대신 넓고 부드러운 둥근 물결(중앙 약간 우측이 가장 깊게) */
+  --bubble-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20100%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%200%20H100%20V80%20C88%2082%2080%2082%2072%2083%20C66%2084%2062%2089%2056%2089%20C51%2089%2048%2084%2042%2083%20C28%2081%2013%2081%200%2080%20Z%27%20fill%3D%27%23fff%27%2F%3E%3C%2Fsvg%3E");
+
   /* 그림자 */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, .1);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, .12);
@@ -184,6 +190,17 @@ ul {
 
   padding: var(--space-20) var(--container-pad);
 
+  /* 말풍선 꼬리 아래로 비치는 크림 바닥 (오렌지는 .hero-bubble 레이어가 담당) */
+  background: var(--color-cream);
+}
+
+/* ---- 오렌지 말풍선 레이어 (마스크로 실루엣 컷) ---- */
+.hero-bubble {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
   /* WebP 우선, PNG 폴백. preload href(.webp)와 일치해야 캐시 재사용 */
   background-image: -webkit-image-set(
     url('assets/hero/hero-bg.webp') type('image/webp'),
@@ -194,8 +211,19 @@ ul {
     url('assets/hero/hero-bg.png') type('image/png')
   );
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
+
+  /* 말풍선 실루엣: 바깥(꼬리 아래/웨이브 아래)은 투명 → 크림이 비침 */
+  -webkit-mask-image: var(--bubble-mask);
+  mask-image: var(--bubble-mask);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  /* 마스크 실루엣을 따라 떨어지는 은은한 그림자(정적, 1회 페인트) */
+  filter: drop-shadow(0 14px 22px rgba(230, 74, 25, .10));
 }
 
 /* ---- 중앙 콘텐츠 ---- */
@@ -223,14 +251,14 @@ ul {
 
 /* 장식용 큰 워드마크 (의미는 h1이 가짐 → 여기는 p) */
 .hero-wordmark {
-  /* 모바일 390px(가용 ~342px)에서도 ICANNOTE 8글자가 한 줄에 들어오게 최소값 하향 */
-  font-size: clamp(40px, 12vw, 120px);
+  /* 레퍼런스 비율(폭의 ~32%)에 맞춤. 모바일에서도 ICANNOTE 8글자 한 줄 유지 */
+  font-size: clamp(38px, 6vw, 92px);
   font-weight: 900;
   line-height: 1;
   letter-spacing: .04em;
   color: var(--color-text-light);
   text-shadow: 0 6px 20px rgba(0, 0, 0, .15);
-  margin-top: var(--space-2);
+  margin-top: 0;
 }
 
 .hero-cta {
@@ -255,19 +283,27 @@ ul {
 
 /* =========================================================
    떠다니는 3D 오브젝트
-   각 오브젝트는 .hero-obj(공통) + obj-*(위치/크기/타이밍)
-   float 애니: transform만 사용(레이아웃 안전), 오브젝트별 dur/delay로 비동기화.
+   구조: .hero-obj(위치 앵커, 중심 기준) > img(.크기 + float 애니)
+   - 위치는 left/top % + translate(-50%,-50%)로 "중심을 좌표에" 고정(레퍼런스 매칭 쉬움)
+   - float는 img의 transform(translateY)만 사용 → 앵커 transform과 분리(충돌 없음)
+   - 좌표/크기는 레퍼런스(812×558) 픽셀 측정 기반
    ========================================================= */
 .hero-objects {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   pointer-events: none;
 }
 
 .hero-obj {
   position: absolute;
-  height: auto; /* 비율은 width/height 속성이 잡고 표시는 width로 */
+  display: block;
+  /* height:auto가 핵심 — img의 height 속성(presentational hint)을 무력화해야
+     width(clamp)와 aspect-ratio(width/height 속성)로 비율이 유지된다.
+     이게 빠지면 box가 width×height속성으로 잡혀 object-fit:fill로 찌그러짐. */
+  height: auto;
+  /* 센터 앵커는 transform이 아니라 translate 속성으로 → float의 transform과 합성됨 */
+  translate: -50% -50%;
   filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .12));
   animation: floatY var(--dur, 4s) ease-in-out var(--delay, 0s) infinite;
   will-change: transform;
@@ -278,43 +314,29 @@ ul {
   50%      { transform: translateY(-10px); }
 }
 
-/* 좌측 그룹 */
-.obj-chat     { left: 7%;  top: 16%;    width: 84px;  --dur: 4.2s; --delay: -.4s; z-index: 2; }
-.obj-pennib   { left: 13%; top: 40%;    width: 76px;  --dur: 3.6s; --delay: -1.1s; z-index: 3; }
-.obj-notebook { left: 6%;  bottom: 14%; width: 150px; --dur: 5s;   --delay: -.7s; z-index: 1; }
-.obj-starpur  { left: 18%; bottom: 30%; width: 50px;  --dur: 3.2s; --delay: -2.0s; z-index: 2; }
-.obj-sparkle  { left: 33%; top: 12%;    width: 42px;  --dur: 3.8s; --delay: -1.6s; z-index: 2; }
-.obj-dot2     { left: 28%; bottom: 22%; width: 12px;  --dur: 4.6s; --delay: -.9s; z-index: 2; }
+/* 좌측 그룹 (left/top = 중심 좌표). 크기는 clamp(vw)로 뷰포트에 비례 → 폭이 좁아도 텍스트와 안 겹침 */
+.obj-chat     { left: 15%; top: 24%; width: clamp(58px, 6.2vw, 88px);   --dur: 4.2s; --delay: -.4s;  z-index: 3; }
+.obj-pennib   { left: 23%; top: 35%; width: clamp(56px, 6vw, 86px);     --dur: 3.6s; --delay: -1.1s; z-index: 3; }
+.obj-notebook { left: 13%; top: 62%; width: clamp(120px, 13.5vw, 190px);--dur: 5s;   --delay: -.7s;  z-index: 2; }
+.obj-starpur  { left: 26%; top: 68%; width: clamp(30px, 3.3vw, 46px);   --dur: 3.2s; --delay: -2.0s; z-index: 3; }
+.obj-sparkle  { left: 31%; top: 17%; width: clamp(28px, 3.2vw, 44px);   --dur: 3.8s; --delay: -1.6s; z-index: 3; }
+.obj-dot2     { left: 27%; top: 70%; width: clamp(10px, 1.1vw, 16px);   --dur: 4.6s; --delay: -.9s;  z-index: 3; }
+.obj-dot1     { left: 9%;  top: 33%; width: clamp(11px, 1.2vw, 18px);   --dur: 4.1s; --delay: -.5s;  z-index: 3; }
 
 /* 우측 그룹 */
-.obj-donut    { right: 9%;  top: 16%;    width: 190px; --dur: 4.8s; --delay: -.3s; z-index: 2; }
-.obj-dashes   { right: 22%; top: 22%;    width: 56px;  --dur: 3.4s; --delay: -1.3s; z-index: 3; }
-.obj-pencil   { right: 13%; top: 50%;    width: 104px; --dur: 4.4s; --delay: -.6s; z-index: 3; }
-.obj-eraser   { right: 18%; bottom: 20%; width: 96px;  --dur: 3.9s; --delay: -1.8s; z-index: 2; }
-.obj-staryel  { right: 30%; bottom: 14%; width: 46px;  --dur: 3.1s; --delay: -2.3s; z-index: 2; }
-.obj-dot1     { right: 27%; top: 12%;    width: 14px;  --dur: 4.1s; --delay: -.5s; z-index: 2; }
-.obj-dot3     { right: 33%; top: 30%;    width: 16px;  --dur: 4.7s; --delay: -1.9s; z-index: 2; }
+.obj-donut    { left: 76%; top: 29%; width: clamp(200px, 21vw, 310px);  --dur: 4.8s; --delay: -.3s;  z-index: 2; }
+.obj-dashes   { left: 62%; top: 25%; width: clamp(40px, 4.4vw, 60px);   animation: none; z-index: 3; }
+.obj-pencil   { left: 85%; top: 54%; width: clamp(74px, 8vw, 112px);    --dur: 4.4s; --delay: -.6s;  z-index: 3; }
+.obj-eraser   { left: 89%; top: 66%; width: clamp(64px, 6.8vw, 98px);   --dur: 3.9s; --delay: -1.8s; z-index: 3; }
+.obj-staryel  { left: 93%; top: 47%; width: clamp(30px, 3.4vw, 48px);   --dur: 3.1s; --delay: -2.3s; z-index: 3; }
+.obj-dot3     { left: 88%; top: 32%; width: clamp(12px, 1.4vw, 20px);   --dur: 4.7s; --delay: -1.9s; z-index: 3; }
 
 /* 초소형 장식은 레이어 승격 불필요 → 합성 메모리 절약 (P4) */
-.obj-dot1,
-.obj-dot2,
-.obj-dot3,
-.obj-dashes {
+.obj-dot1 img,
+.obj-dot2 img,
+.obj-dot3 img,
+.obj-dashes img {
   will-change: auto;
-}
-
-/* =========================================================
-   히어로 → 다음 섹션 곡선 전환
-   ========================================================= */
-.hero-wave {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px; /* 서브픽셀 라인 방지 */
-  width: 100%;
-  height: clamp(60px, 8vw, 120px);
-  z-index: 4;
-  display: block;
 }
 
 /* =========================================================
@@ -327,13 +349,7 @@ ul {
     --container-pad: 48px;
   }
 
-  /* 큰 오브젝트 축소 */
-  .obj-donut    { width: 150px; }
-  .obj-notebook { width: 120px; }
-  .obj-pencil   { width: 84px; }
-  .obj-eraser   { width: 78px; }
-  .obj-chat     { width: 70px; }
-  .obj-pennib   { width: 62px; }
+  /* 오브젝트 크기는 clamp(vw)가 자동으로 줄임 → 별도 px override 불필요 */
 
   /* 작은 장식 일부 숨김 */
   .obj-sparkle,
@@ -392,7 +408,7 @@ ul {
    모션 민감 사용자 — float 정지
    ========================================================= */
 @media (prefers-reduced-motion: reduce) {
-  .hero-obj {
+  .hero-obj img {
     animation: none;
   }
 

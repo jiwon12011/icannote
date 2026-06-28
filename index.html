@@ -33,6 +33,9 @@
   <main id="top">
     <!-- ===================== HERO ===================== -->
     <section class="hero" aria-labelledby="hero-title">
+      <!-- 오렌지 말풍선 배경 레이어 (SVG 마스크로 실루엣 컷, 그 아래 크림이 비침) -->
+      <div class="hero-bubble" aria-hidden="true"></div>
+
       <!-- 떠다니는 3D 장식 오브젝트 (모두 장식 → aria-hidden) -->
       <div class="hero-objects" aria-hidden="true">
         <picture><source srcset="assets/hero/chat-bubble.webp" type="image/webp" /><img class="hero-obj obj-chat" src="assets/hero/chat-bubble.png" width="141" height="128" alt="" fetchpriority="low" /></picture>
@@ -59,11 +62,6 @@
         <p class="hero-wordmark">ICANNOTE</p>
         <a class="hero-cta" href="#download">다운로드 받기</a>
       </div>
-
-      <!-- 히어로 → 다음 섹션 곡선 전환 -->
-      <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path d="M0,64 C240,112 480,112 720,80 C960,48 1200,16 1440,48 L1440,120 L0,120 Z" fill="#FFFFFF" />
-      </svg>
     </section>
 
     <!-- ===================== 이후 섹션 스텁 (motion/copy 추후) ===================== -->
