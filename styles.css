@@ -422,6 +422,7 @@ ul {
 @media (prefers-reduced-motion: reduce) {
   .hero-obj {
     animation: none;
+    will-change: auto;
   }
 
   html {
@@ -1008,4 +1009,511 @@ ul {
 }
 @media (max-width: 519px) {
   .series-grid { grid-template-columns: 1fr; max-width: 360px; margin-inline: auto; }
+}
+
+/* =========================================================================
+   ===========  사용 예시 페이지 (usecases.html) — uc- 네임스페이스  ===========
+   메인 디자인 토큰/컴포넌트 재사용. 신규 컴포넌트만 여기 정의.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   UC 01. HERO
+   상단 주황 밴드(글래스 nav 흰 텍스트 대비 확보) → 크림으로 페이드.
+   ------------------------------------------------------------------------- */
+.uc-hero {
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--space-32) + var(--space-4)) var(--container-pad) var(--space-24);
+  /* 상단 주황(nav 영역) → 크림 바닥. 헤더 흰 글씨가 주황 위에 얹히도록 */
+  background:
+    radial-gradient(120% 90% at 82% -20%, #FFC98E 0%, rgba(255, 201, 142, 0) 55%),
+    linear-gradient(180deg, var(--color-orange-main) 0%, #FF9A5E 14%, #FFD3AE 36%, var(--color-cream) 60%);
+}
+
+.uc-hero__inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.uc-hero__copy { position: relative; z-index: 2; }
+.uc-hero__eyebrow {
+  font-size: 14px; font-weight: 800; letter-spacing: .12em;
+  color: var(--color-orange-deep);
+  margin-bottom: var(--space-4);
+}
+.uc-hero__title {
+  font-size: clamp(30px, 3.6vw, 56px); font-weight: 800; line-height: 1.28;
+  color: var(--color-text-navy);
+  letter-spacing: -.01em;
+}
+.uc-hero__title .hl { color: var(--color-orange-deep); }
+.uc-hero__sub {
+  margin-top: var(--space-6);
+  font-size: clamp(15px, 1.3vw, 18px); line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+.uc-hero__cta {
+  margin-top: var(--space-8);
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 999px;
+  font-size: 16px; font-weight: 800; color: #fff;
+  background: linear-gradient(135deg, var(--color-orange-main), var(--color-orange-deep));
+  box-shadow: var(--shadow-button);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.uc-hero__cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+/* ---- 판서 화면 목업 (흰 프레임 + 안에 판서 이미지) ---- */
+.uc-hero__visual { position: relative; z-index: 1; }
+.uc-mockup {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .06);
+  border-radius: 22px;
+  padding: var(--space-3);
+  box-shadow: var(--shadow-xl);
+}
+.uc-mockup__bar {
+  display: flex; gap: 7px;
+  padding: 6px var(--space-2) var(--space-3);
+}
+.uc-mockup__bar i {
+  width: 11px; height: 11px; border-radius: 50%;
+  background: #FFCBA8;
+}
+.uc-mockup__bar i:nth-child(2) { background: #FFB27D; }
+.uc-mockup__bar i:nth-child(3) { background: var(--color-orange-main); }
+.uc-mockup__screen {
+  aspect-ratio: 16 / 10;      /* CLS 방지: 박스 크기 확정 */
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fbf4e8;
+}
+.uc-mockup__screen img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+/* ---- 기능 말풍선 (정보 → aria-hidden 금지, 텍스트 #1F1F1F 대비) ---- */
+.uc-bubble {
+  position: absolute;
+  z-index: 3;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: clamp(12px, 1vw, 14px); font-weight: 700;
+  color: var(--color-text-dark);
+  background: rgba(255, 255, 255, .82);
+  border: 1px solid rgba(255, 255, 255, .9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
+  animation: floatY var(--dur, 4s) ease-in-out var(--delay, 0s) infinite;
+  will-change: transform;
+}
+/* 작은 점 꼬리 */
+.uc-bubble::after {
+  content: ""; position: absolute;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--color-orange-main);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .82);
+}
+.uc-bubble--1 { top: -2%;  left: -4%;  --dur: 4.2s; --delay: -.3s; }
+.uc-bubble--1::after { bottom: -5px; left: 22px; }
+.uc-bubble--2 { top: 26%;  right: -7%; --dur: 3.6s; --delay: -1.1s; }
+.uc-bubble--2::after { bottom: -5px; left: 22px; }
+.uc-bubble--3 { bottom: 20%; left: -8%; --dur: 4.6s; --delay: -.7s; }
+.uc-bubble--3::after { top: -5px; left: 22px; }
+.uc-bubble--4 { bottom: -3%; right: 4%; --dur: 3.9s; --delay: -1.6s; }
+.uc-bubble--4::after { top: -5px; right: 22px; }
+
+/* -------------------------------------------------------------------------
+   UC 02. USE CASE (4카드)
+   ------------------------------------------------------------------------- */
+.uc-cases {
+  background: var(--color-cream);
+  padding: var(--space-20) var(--container-pad);
+}
+.uc-cases__head { text-align: center; margin-bottom: var(--space-14); }
+.uc-cases__head .series-title { margin-bottom: 0; }
+
+.uc-cases__grid {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+.uc-case-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .05);
+  border-radius: var(--radius-card);
+  padding: var(--space-8) var(--space-6);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.uc-case-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 44px rgba(230, 74, 25, .14);
+  border-color: rgba(255, 122, 61, .3);
+}
+.uc-case-card__icon {
+  width: 104px; height: 104px;
+  border-radius: 26px;
+  overflow: hidden;                 /* 둥근 모서리로 이미지 클립 */
+  background: linear-gradient(160deg, #FF9D52 0%, var(--color-orange-main) 50%, var(--color-orange-deep) 100%);
+  display: grid; place-items: center;
+  margin-bottom: var(--space-6);
+  box-shadow: 0 12px 24px rgba(230, 74, 25, .26);
+}
+.uc-case-card__icon picture { display: block; width: 100%; height: 100%; }
+.uc-case-card__icon img {
+  width: 100%; height: 100%; object-fit: cover;  /* 박스에 꽉 차게 */
+}
+.uc-case-card__title {
+  font-size: clamp(17px, 1.4vw, 20px); font-weight: 800;
+  color: var(--color-text-dark); margin-bottom: var(--space-3);
+}
+.uc-case-card__desc {
+  font-size: 14px; line-height: 1.7; color: var(--color-text-secondary);
+}
+
+/* -------------------------------------------------------------------------
+   UC 03. FEATURED VIDEO (2분할: 썸네일 + 설명카드)
+   ------------------------------------------------------------------------- */
+.uc-featured {
+  background: var(--color-cream);
+  padding: var(--space-20) var(--container-pad);
+}
+.uc-featured__grid {
+  max-width: 1060px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: var(--space-10);
+  align-items: stretch;
+}
+
+/* 썸네일 (실영상 없음 → 주황 그라데이션 플레이스홀더, 16/9 박스 확정) */
+.uc-featured__thumb {
+  position: relative;
+  display: grid; place-items: center;
+  width: 100%; align-self: center; /* stretch 행 높이로 aspect-ratio가 width를 역산해 넘치는 것 방지 + 우 카드와 세로 중앙 정렬 */
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background:
+    radial-gradient(120% 120% at 30% 20%, #FFB877 0%, rgba(255,184,119,0) 55%),
+    linear-gradient(135deg, var(--color-orange-main) 0%, var(--color-orange-deep) 100%);
+  box-shadow: var(--shadow-lg);
+  color: #fff;
+  text-align: center;
+}
+.uc-featured__label {
+  position: absolute; top: var(--space-5); left: var(--space-5);
+  font-size: 13px; font-weight: 800; letter-spacing: .04em;
+  padding: 6px 14px; border-radius: 999px;
+  background: rgba(255, 255, 255, .22);
+  border: 1px solid rgba(255, 255, 255, .4);
+}
+.uc-featured__caption {
+  position: absolute; left: var(--space-8); right: var(--space-8); bottom: var(--space-6);
+  font-size: clamp(15px, 1.5vw, 19px); font-weight: 700; line-height: 1.5;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .25);
+}
+
+/* 공통 재생 버튼 (featured + 비디오 카드) */
+.uc-play {
+  display: grid; place-items: center;
+  width: 76px; height: 76px; border-radius: 50%;
+  background: rgba(255, 255, 255, .92);
+  color: var(--color-orange-deep);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .18);
+  transform: translateZ(0);
+  transition: transform .2s ease;
+}
+.uc-play svg { margin-left: 4px; }   /* 삼각형 시각 중심 보정 */
+.uc-featured__thumb:hover .uc-play { transform: scale(1.08); }
+
+/* 설명 카드 */
+.uc-featured__card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .05);
+  border-radius: var(--radius-card);
+  padding: var(--space-10);
+  box-shadow: var(--shadow-md);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.uc-featured__heading {
+  font-size: clamp(20px, 2vw, 26px); font-weight: 800;
+  color: var(--color-text-dark); margin-bottom: var(--space-4);
+}
+.uc-featured__lead {
+  font-size: 15px; line-height: 1.75; color: var(--color-text-secondary);
+  margin-bottom: var(--space-7);
+}
+.uc-featured__steps { display: flex; flex-direction: column; gap: var(--space-4); }
+.uc-featured__steps li {
+  display: flex; align-items: center; gap: var(--space-4);
+  font-size: 16px; font-weight: 600; color: var(--color-text-dark);
+}
+.uc-featured__num {
+  flex: none;
+  display: inline-grid; place-items: center;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-orange-main), var(--color-orange-deep));
+  color: #fff; font-size: 14px; font-weight: 800;
+}
+
+/* -------------------------------------------------------------------------
+   UC 04. FLOW — 메인(세로 스택 카드)과 다른 "가로 4단계 타임라인"
+   크림 배경 위, 카드 없이 가로로 흐르고 가운데 연결선이 단계를 잇는다.
+   ------------------------------------------------------------------------- */
+.uc-flow2 {
+  background: linear-gradient(180deg, var(--color-cream) 0%, #FFF7EE 100%);
+  padding: var(--space-24) var(--container-pad);
+}
+.uc-flow2__head { max-width: 720px; margin: 0 auto var(--space-16); text-align: center; }
+.uc-flow2__head .series-badge { margin-bottom: var(--space-4); }
+.uc-flow2__title {
+  font-size: clamp(28px, 3.4vw, 44px); font-weight: 800; line-height: 1.32;
+  color: var(--color-text-dark);
+}
+.uc-flow2__title .hl { color: var(--color-orange-deep); }
+.uc-flow2__desc {
+  margin-top: var(--space-4);
+  font-size: 16px; line-height: 1.7; color: var(--color-text-secondary);
+}
+
+/* 가로 트랙 */
+.uc-flow2__track {
+  position: relative;
+  max-width: var(--container-max); margin-inline: auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+/* 단계를 잇는 가로 점선 — 미디어 타일 세로 중심을 관통 */
+.uc-flow2__track::before {
+  content: "";
+  position: absolute; z-index: 0;
+  top: calc(clamp(120px, 12vw, 168px) / 2);
+  left: 12.5%; right: 12.5%;
+  height: 0; border-top: 2px dashed rgba(255, 122, 61, .45);
+  transform: translateY(-1px);
+}
+.uc-flow2__step {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+}
+.uc-flow2__media {
+  position: relative;
+  display: grid; place-items: center;
+  width: clamp(120px, 12vw, 168px); aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fff;
+  border: var(--border-card);
+  box-shadow: 0 16px 36px rgba(230, 74, 25, .12);
+}
+.uc-flow2__media picture { display: block; width: 78%; }
+.uc-flow2__media img { width: 100%; height: auto; object-fit: contain; }
+.uc-flow2__media--icon {
+  background: linear-gradient(160deg, #FF9D52 0%, var(--color-orange-main) 50%, var(--color-orange-deep) 100%);
+  border-color: transparent; color: #fff;
+  box-shadow: 0 16px 36px rgba(230, 74, 25, .28);
+}
+/* 번호 배지 — 타일 우상단 */
+.uc-flow2__num {
+  position: absolute; top: 4px; right: 4px;
+  display: grid; place-items: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-orange-main), var(--color-orange-deep));
+  color: #fff; font-size: 15px; font-weight: 800;
+  border: 3px solid var(--color-cream);
+  box-shadow: var(--shadow-button);
+}
+.uc-flow2__step-title {
+  margin-top: var(--space-6);
+  font-size: clamp(18px, 1.5vw, 21px); font-weight: 800; color: var(--color-text-dark);
+}
+.uc-flow2__step-desc {
+  margin-top: var(--space-3);
+  font-size: 15px; line-height: 1.7; color: var(--color-text-secondary);
+  max-width: 22ch;
+}
+
+/* -------------------------------------------------------------------------
+   UC 05. EXAMPLE VIDEOS (필터 + 카드 그리드)
+   ------------------------------------------------------------------------- */
+.uc-videos {
+  background: var(--color-cream);
+  padding: var(--space-20) var(--container-pad) var(--space-24);
+}
+.uc-videos__head { text-align: center; margin-bottom: var(--space-10); }
+.uc-videos__head .series-title { margin-bottom: 0; }
+
+/* 필터 토글 그룹 */
+.uc-filter {
+  max-width: var(--container-max);
+  margin: 0 auto var(--space-12);
+  display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3);
+}
+.uc-filter__btn {
+  font-family: inherit;
+  font-size: 15px; font-weight: 700;
+  color: var(--color-text-dark);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .12);
+  border-radius: 999px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease, transform .15s ease;
+}
+.uc-filter__btn:hover {
+  border-color: var(--color-orange-main);
+  color: var(--color-orange-deep);
+}
+.uc-filter__btn.is-active {
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-orange-main), var(--color-orange-deep));
+  border-color: transparent;
+  box-shadow: var(--shadow-button);
+}
+
+/* 카드 그리드 */
+.uc-videos__grid {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+.uc-video-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .05);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex; flex-direction: column;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.uc-video-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+/* 썸네일 — 16/9 박스 확정(실에셋 교체 대비), 그라데이션 플레이스홀더 */
+.uc-video-card__thumb {
+  position: relative;
+  display: grid; place-items: center;
+  aspect-ratio: 16 / 9;
+  background:
+    radial-gradient(110% 110% at 25% 15%, #FFC18A 0%, rgba(255,193,138,0) 55%),
+    linear-gradient(135deg, #FF9A5E 0%, var(--color-orange-deep) 100%);
+}
+.uc-video-card__thumb .uc-play {
+  width: 54px; height: 54px;
+}
+.uc-video-card__thumb:hover .uc-play { transform: scale(1.08); }
+
+.uc-video-card__body {
+  padding: var(--space-5) var(--space-5) var(--space-6);
+  display: flex; flex-direction: column; gap: var(--space-2);
+  flex: 1;
+}
+.uc-tag {
+  align-self: flex-start;
+  font-size: 12px; font-weight: 800; letter-spacing: .02em;
+  color: var(--color-orange-deep);
+  background: rgba(255, 122, 61, .12);
+  padding: 4px 12px; border-radius: 999px;
+  margin-bottom: var(--space-2);
+}
+.uc-video-card__title {
+  font-size: 16px; font-weight: 800; line-height: 1.4;
+  color: var(--color-text-dark);
+}
+.uc-video-card__desc {
+  font-size: 14px; line-height: 1.6; color: var(--color-text-secondary);
+}
+.uc-video-card__chan {
+  margin-top: auto; padding-top: var(--space-3);
+  font-size: 12.5px; color: var(--color-text-muted);
+  display: flex; align-items: center; gap: 7px;
+}
+.uc-video-card__chan::before {
+  content: ""; width: 18px; height: 18px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-orange-light), var(--color-orange-main));
+  flex: none;
+}
+
+.uc-videos__empty {
+  text-align: center; margin-top: var(--space-8);
+  font-size: 15px; color: var(--color-text-muted);
+}
+
+/* -------------------------------------------------------------------------
+   UC — 반응형 3-tier (메인과 동일 브레이크포인트 810~1279 / ≤809)
+   ------------------------------------------------------------------------- */
+@media (max-width: 1279px) {
+  .uc-hero {
+    padding-top: var(--space-32);
+  }
+  .uc-hero__inner { gap: var(--space-10); }
+
+  .uc-cases__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
+  .uc-videos__grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* 플로우 타임라인: 2x2, 연결선은 가로 한 줄 대신 제거(2행이라 어색) */
+  .uc-flow2__track { grid-template-columns: repeat(2, 1fr); gap: var(--space-10) var(--space-6); }
+  .uc-flow2__track::before { display: none; }
+}
+
+@media (max-width: 809px) {
+  /* 히어로: 1열, 비주얼 아래. 말풍선이 잘리지 않도록 좌우 여백 확보 */
+  .uc-hero {
+    padding-top: calc(var(--space-24) + var(--space-8));
+    padding-bottom: var(--space-16);
+  }
+  .uc-hero__inner { grid-template-columns: 1fr; gap: var(--space-12); }
+  .uc-hero__copy { text-align: center; }
+  .uc-hero__sub { margin-inline: auto; }
+  .uc-hero__visual { max-width: 460px; margin-inline: auto; width: 100%; }
+  .uc-bubble--1 { left: 0; }
+  .uc-bubble--2 { right: -2%; }
+  .uc-bubble--3 { left: -2%; }
+  .uc-bubble--4 { right: 2%; }
+
+  .uc-cases__grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
+
+  .uc-featured__grid { grid-template-columns: 1fr; gap: var(--space-6); }
+  .uc-featured__card { padding: var(--space-8); }
+
+  .uc-videos__grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
+  .uc-filter { gap: var(--space-2); }
+  .uc-filter__btn { font-size: 13.5px; padding: 8px 15px; }
+
+  /* 플로우 타임라인: 1열 세로, 미디어 좌측·텍스트 우측의 가로 스텝으로 */
+  .uc-flow2 { padding: var(--space-20) var(--container-pad); }
+  .uc-flow2__track { grid-template-columns: 1fr; gap: var(--space-8); max-width: 460px; }
+  .uc-flow2__step {
+    flex-direction: row; align-items: center; gap: var(--space-5); text-align: left;
+  }
+  .uc-flow2__media { width: 96px; flex: none; }
+  .uc-flow2__step-title { margin-top: 0; }
+  .uc-flow2__step-desc { margin-top: var(--space-2); max-width: none; }
+
+  /* 모바일: 말풍선 backdrop-filter 비용 제거(저사양 보호, nav와 동일 정책) */
+  .uc-bubble {
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+    background: rgba(255, 255, 255, .95);
+  }
+}
+
+/* -------------------------------------------------------------------------
+   UC — 모션 민감 사용자: 말풍선 floatY 정지
+   ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .uc-bubble { animation: none; will-change: auto; }
 }
