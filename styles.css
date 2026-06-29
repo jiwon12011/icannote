@@ -218,7 +218,14 @@ ul {
   pointer-events: none;
 
   /* WebP 우선, PNG 폴백. preload href(.webp)와 일치해야 캐시 재사용 */
-  background-image: url('assets/hero/hero-bg-blue.png');
+  background-image: -webkit-image-set(
+    url('assets/hero/hero-demo-workspace-blue.webp') type('image/webp'),
+    url('assets/hero/hero-demo-workspace-blue.png') type('image/png')
+  );
+  background-image: image-set(
+    url('assets/hero/hero-demo-workspace-blue.webp') type('image/webp'),
+    url('assets/hero/hero-demo-workspace-blue.png') type('image/png')
+  );
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -1428,15 +1435,21 @@ ul {
 .uc-case-card__icon {
   width: 104px; height: 104px;
   border-radius: 26px;
-  overflow: hidden;                 /* 둥근 모서리로 이미지 클립 */
-  background: linear-gradient(160deg, #FF9D52 0%, var(--color-orange-main) 50%, var(--color-orange-deep) 100%);
+  overflow: hidden;
+  background: #F0F6FF;
+  border: 1px solid rgba(26, 111, 255, .12);
   display: grid; place-items: center;
   margin-bottom: var(--space-6);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, .14);
+  box-shadow: 0 14px 28px rgba(26, 111, 255, .10);
 }
-.uc-case-card__icon picture { display: block; width: 100%; height: 100%; }
+.uc-case-card__icon picture {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+}
 .uc-case-card__icon img {
-  width: 100%; height: 100%; object-fit: cover;  /* 박스에 꽉 차게 */
+  width: 74px; height: 74px; object-fit: contain;
 }
 .uc-case-card__title {
   font-size: clamp(17px, 1.4vw, 20px); font-weight: 800;
@@ -1976,7 +1989,7 @@ ul {
 .theme-blue .uc-mockup__bar i:nth-child(2) { background: #8FBEFF; }
 .theme-blue .uc-mockup__bar i:nth-child(3) { background: var(--color-orange-main); }
 .theme-blue .uc-case-card:hover { box-shadow: 0 20px 44px rgba(26, 111, 255, .16); border-color: rgba(61, 155, 255, .35); }
-.theme-blue .uc-case-card__icon { background: linear-gradient(160deg, #5AACFF 0%, var(--color-orange-main) 50%, var(--color-orange-deep) 100%); }
+.theme-blue .uc-case-card__icon { background: #F0F6FF; border-color: rgba(26, 111, 255, .12); }
 .theme-blue .uc-featured__thumb {
   background:
     radial-gradient(120% 120% at 30% 20%, #9CC8FF 0%, rgba(156, 200, 255, 0) 55%),
