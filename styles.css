@@ -20,8 +20,8 @@
   --color-glass-surface: rgba(255, 255, 255, 0.15);
   --color-glass-border: rgba(255, 255, 255, 0.35);
 
-  /* 말풍선 아래로 이어지는 크림 톤(레퍼런스 바닥 샘플 #FEF7F0). 다음 섹션 배경과 연결됨 */
-  --color-cream: #FEF7F0;
+  /* 사이트 공통 뒷 배경(섹션/말풍선 아래). 뉴트럴 그레이 */
+  --color-cream: #F5F5F5;
 
   /* 히어로 오렌지 말풍선 실루엣 마스크: 뾰족한 꼬리 대신 넓고 부드러운 둥근 물결(중앙 약간 우측이 가장 깊게) */
   --bubble-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20100%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%200%20H100%20V80%20C82%2085%2072%2085%2064%2085%20C60%2087%2058%2093%2052%2093%20C46%2093%2044%2086%2038%2085%20C24%2083%2012%2083%200%2081%20Z%27%20fill%3D%27%23fff%27%2F%3E%3C%2Fsvg%3E");
@@ -805,19 +805,11 @@ ul {
    ========================================================= */
 .flow {
   position: relative;
-  background-color: var(--color-cream);
-  background-image: url('assets/hero background1.jpg');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
+  /* 따뜻한 이미지 배경 → 연한 하늘색에서 그레이로 떨어지는 톤 */
+  background: linear-gradient(180deg, #E8F1FA 0%, #EEF2F6 50%, var(--color-cream) 100%);
   padding: var(--space-24) var(--container-pad);
 }
-.flow::before {
-  content: "";
-  position: absolute; inset: 0; z-index: 0;
-  background: linear-gradient(180deg, rgba(255,247,238,.55) 0%, rgba(255,247,238,.75) 100%);
-  pointer-events: none;
-}
+.flow::before { display: none; }
 .flow > * { position: relative; z-index: 1; }
 
 /* 헤더 (말풍선 + 타이틀) */
@@ -1859,3 +1851,65 @@ ul {
   .faq-cats__grid { grid-template-columns: repeat(2, 1fr); }
   .faq-item__q { padding: var(--space-4) var(--space-5); }
 }
+
+/* =========================================================================
+   ===========  서브페이지 블루 테마 (body.theme-blue)  ===========
+   메인이 채택한 라이트 블루 무드(#1A6FFF 액센트)에 맞춰 주황 → 파랑.
+   1) 주황 토큰을 재정의해 토큰 기반 색을 일괄 전환(메인은 영향 없음)
+   2) 토큰이 아닌 리터럴 주황만 선택자별로 override
+   ========================================================================= */
+.theme-blue {
+  --color-orange-main: #3D9BFF;
+  --color-orange-deep: #1A6FFF;
+  --shadow-button: 0 8px 24px rgba(26, 111, 255, .28);
+}
+
+/* --- 히어로: 주황 밴드 → 라이트 블루 → 크림 (nav 다크 텍스트 대비 확보) --- */
+.theme-blue .uc-hero {
+  background:
+    radial-gradient(120% 90% at 82% -20%, #E3F0FF 0%, rgba(227, 240, 255, 0) 55%),
+    linear-gradient(180deg, #CFE6FF 0%, #DCEEFF 16%, #ECF5FF 40%, var(--color-cream) 62%);
+}
+.theme-blue .faq-hero {
+  background:
+    radial-gradient(120% 80% at 80% -30%, #E3F0FF 0%, rgba(227, 240, 255, 0) 55%),
+    linear-gradient(180deg, #CFE6FF 0%, #DCEEFF 16%, #ECF5FF 40%, var(--color-cream) 78%);
+}
+
+/* --- 공유 컴포넌트(시리즈/CTA) 리터럴 주황 --- */
+.theme-blue .series-badge { background: rgba(26, 111, 255, .12); }
+.theme-blue .series-card:hover { box-shadow: 0 20px 44px rgba(26, 111, 255, .16); border-color: rgba(61, 155, 255, .35); }
+.theme-blue .series-card--featured { background: linear-gradient(180deg, #FBFDFF 0%, #ECF4FF 100%); box-shadow: 0 20px 44px rgba(26, 111, 255, .16); }
+/* CTA: 주황 무지개링 이미지 대신 블루 그라데이션 밴드(블루 에셋 부재) */
+.theme-blue .cta {
+  background-image: none;
+  background: radial-gradient(120% 160% at 88% -10%, #5AACFF 0%, rgba(90, 172, 255, 0) 55%), linear-gradient(135deg, #3D9BFF 0%, #1A6FFF 100%);
+}
+.theme-blue .cta::before { display: none; }
+
+/* --- usecases (uc-) 리터럴 주황 --- */
+.theme-blue .uc-mockup__bar i { background: #BFD9FF; }
+.theme-blue .uc-mockup__bar i:nth-child(2) { background: #8FBEFF; }
+.theme-blue .uc-mockup__bar i:nth-child(3) { background: var(--color-orange-main); }
+.theme-blue .uc-case-card:hover { box-shadow: 0 20px 44px rgba(26, 111, 255, .16); border-color: rgba(61, 155, 255, .35); }
+.theme-blue .uc-case-card__icon { background: linear-gradient(160deg, #5AACFF 0%, var(--color-orange-main) 50%, var(--color-orange-deep) 100%); }
+.theme-blue .uc-featured__thumb {
+  background:
+    radial-gradient(120% 120% at 30% 20%, #9CC8FF 0%, rgba(156, 200, 255, 0) 55%),
+    linear-gradient(135deg, var(--color-orange-main) 0%, var(--color-orange-deep) 100%);
+}
+.theme-blue .uc-video-card__thumb {
+  background:
+    radial-gradient(110% 110% at 25% 15%, #9CC8FF 0%, rgba(156, 200, 255, 0) 55%),
+    linear-gradient(135deg, #5AACFF 0%, var(--color-orange-deep) 100%);
+}
+
+/* --- FAQ (faq-) 리터럴 주황 --- */
+.theme-blue .faq-search__input:focus { box-shadow: 0 12px 32px rgba(26, 111, 255, .18); }
+.theme-blue .faq-cat-card:hover { box-shadow: 0 16px 36px rgba(26, 111, 255, .14); border-color: rgba(61, 155, 255, .35); }
+.theme-blue .faq-cat-card__icon { background: rgba(26, 111, 255, .10); }
+.theme-blue .faq-pop-card:hover { border-color: rgba(61, 155, 255, .35); }
+.theme-blue .faq-side__btn:hover { background: rgba(26, 111, 255, .08); }
+.theme-blue .faq-item.is-open { border-color: rgba(61, 155, 255, .4); box-shadow: 0 12px 28px rgba(26, 111, 255, .12); }
+.theme-blue .faq-item__tag { background: rgba(26, 111, 255, .10); }
+.theme-blue .faq-help__card { background: linear-gradient(135deg, #F2F7FF 0%, #DCEBFF 100%); border-color: rgba(61, 155, 255, .25); }
