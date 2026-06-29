@@ -1098,6 +1098,13 @@ ul {
   opacity: 1;
   transform: none;
 }
+@keyframes arrowBob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(4px); }
+}
+.series-title.is-visible .series-callout__arrow {
+  animation: arrowBob .9s ease-in-out 1.2s infinite;
+}
 /* 왼쪽 획 */
 .series-callout__path--l {
   stroke-dasharray: 14;
@@ -1204,7 +1211,7 @@ ul {
     url('assets/cta/cta-rainbow-ring-sky-wide.webp') type('image/webp'),
     url('assets/cta/cta-rainbow-ring-sky-wide.png') type('image/png')
   );
-  background-color: #EAF5FF;
+  background-color: #E8EDF5;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1223,7 +1230,7 @@ ul {
   font-size: 16px; font-weight: 800;
   padding: 15px 30px; border-radius: 999px;
   text-decoration: none;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, .14);
+  box-shadow: none;
   transition: transform .2s ease;
 }
 .cta__btn:hover { transform: translateY(-2px); }
