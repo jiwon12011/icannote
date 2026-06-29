@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — 아이캔노트 ICANNOTE</title>
+  <meta name="description" content="아이캔노트(ICANNOTE) 자주 묻는 질문 — 설치, 판서 기능, 녹화, 저장, 파일 관리까지 빠르게 찾아보세요." />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===================== HEADER / NAV (글래스 pill, 사이트 공통) ===================== -->
+  <header class="site-header">
+    <nav class="nav" aria-label="주요 메뉴">
+      <a class="nav-brand" href="index.html">ICANNOTE</a>
+      <ul class="nav-links">
+        <li><a href="usecases.html">사용 예시</a></li>
+        <li><a href="faq.html" aria-current="page">FAQ</a></li>
+        <li><a href="index.html#cafe">공식카페</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- ===================== 01. HERO + 검색 ===================== -->
+    <section class="faq-hero" aria-labelledby="faq-hero-title">
+      <div class="faq-hero__inner">
+        <p class="faq-hero__eyebrow">FAQ</p>
+        <h1 id="faq-hero-title" class="faq-hero__title">궁금한 점을 빠르게 찾아보세요</h1>
+        <p class="faq-hero__sub">설치, 판서 기능, 녹화, 저장 문제까지<br />아이캔노트 사용 중 자주 묻는 질문을 모았어요.</p>
+
+        <form class="faq-search" role="search" onsubmit="return false;">
+          <svg class="faq-search__icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="faqSearch" type="search" class="faq-search__input" placeholder="무엇을 찾고 계신가요?  예: 화면 확대, 녹화 소리, PDF 불러오기" aria-label="FAQ 검색" autocomplete="off" />
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================== 02. 카테고리 카드 ===================== -->
+    <section class="faq-cats" aria-labelledby="faq-cats-title">
+      <h2 id="faq-cats-title" class="faq-section__title">카테고리로 찾기</h2>
+      <ul class="faq-cats__grid">
+          <li>
+            <button type="button" class="faq-cat-card" data-jump="function">
+              <span class="faq-cat-card__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></span>
+              <span class="faq-cat-card__name">기능 관련</span>
+              <span class="faq-cat-card__desc">펜, 도형, 확대, 화면 회전 등 사용 중 기능</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="faq-cat-card" data-jump="setup">
+              <span class="faq-cat-card__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+              <span class="faq-cat-card__name">설치 및 사용법</span>
+              <span class="faq-cat-card__desc">설치 오류, 실행 문제, 기본 사용법</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="faq-cat-card" data-jump="license">
+              <span class="faq-cat-card__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
+              <span class="faq-cat-card__name">라이선스 및 오류</span>
+              <span class="faq-cat-card__desc">구매, 인증, 저작권, 오류 해결</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="faq-cat-card" data-jump="save">
+              <span class="faq-cat-card__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/><circle cx="8.5" cy="12" r="2.5"/></svg></span>
+              <span class="faq-cat-card__name">저장 및 녹화</span>
+              <span class="faq-cat-card__desc">영상 녹화, 소리, 저장 위치</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="faq-cat-card" data-jump="file">
+              <span class="faq-cat-card__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg></span>
+              <span class="faq-cat-card__name">파일 관리</span>
+              <span class="faq-cat-card__desc">PDF, HWP, PPT, 이미지 불러오기</span>
+            </button>
+          </li>
+      </ul>
+    </section>
+
+    <!-- ===================== 03. 많이 찾는 질문 ===================== -->
+    <section class="faq-popular" aria-labelledby="faq-popular-title">
+      <h2 id="faq-popular-title" class="faq-section__title">많이 찾는 질문</h2>
+      <ul class="faq-popular__grid">
+          <li>
+            <button type="button" class="faq-pop-card" data-target="q-zoom-shortcut">
+              <span class="faq-pop-card__q" aria-hidden="true">Q</span>
+              <span class="faq-pop-card__text">화면 확대/축소 단축키를 알고 싶어요.</span>
+              <span class="faq-pop-card__arrow" aria-hidden="true">→</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="faq-pop-card" data-target="q-record-nosound">
+              <span class="faq-pop-card__q" aria-hidden="true">Q</span>
+              <span class="faq-pop-card__text">녹화한 영상에 소리가 나오지 않아요.</span>
+              <span class="faq-pop-card__arrow" aria-hidden="true">→</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="faq-pop-card" data-target="q-save-icn">
+              <span class="faq-pop-card__q" aria-hidden="true">Q</span>
+              <span class="faq-pop-card__text">불러온 파일과 판서 내용을 저장해 다시 쓸 수 있나요?</span>
+              <span class="faq-pop-card__arrow" aria-hidden="true">→</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="faq-pop-card" data-target="q-bg-color">
+              <span class="faq-pop-card__q" aria-hidden="true">Q</span>
+              <span class="faq-pop-card__text">노트 배경 색상은 어떻게 바꾸나요?</span>
+              <span class="faq-pop-card__arrow" aria-hidden="true">→</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="faq-pop-card" data-target="q-note-vs-screen">
+              <span class="faq-pop-card__q" aria-hidden="true">Q</span>
+              <span class="faq-pop-card__text">아이캔노트와 아이캔스크린은 어떤 차이인가요?</span>
+              <span class="faq-pop-card__arrow" aria-hidden="true">→</span>
+            </button>
+          </li>
+      </ul>
+    </section>
+
+    <!-- ===================== 04. FAQ 목록 (좌 고정 카테고리 + 우 아코디언) ===================== -->
+    <section id="faq-list" class="faq-list" aria-labelledby="faq-list-title">
+      <h2 id="faq-list-title" class="faq-section__title">전체 질문</h2>
+      <div class="faq-list__inner">
+        <aside class="faq-side">
+          <ul class="faq-side__nav" role="group" aria-label="카테고리 필터">
+            <li><button type="button" class="faq-side__btn is-active" data-filter="all" aria-pressed="true">전체</button></li>
+            <li><button type="button" class="faq-side__btn" data-filter="function" aria-pressed="false">기능 관련</button></li>
+            <li><button type="button" class="faq-side__btn" data-filter="setup" aria-pressed="false">설치 및 사용법</button></li>
+            <li><button type="button" class="faq-side__btn" data-filter="license" aria-pressed="false">라이선스 및 오류</button></li>
+            <li><button type="button" class="faq-side__btn" data-filter="save" aria-pressed="false">저장 및 녹화</button></li>
+            <li><button type="button" class="faq-side__btn" data-filter="file" aria-pressed="false">파일 관리</button></li>
+          </ul>
+        </aside>
+
+        <div class="faq-main">
+          <p class="faq-main__count"><span id="faqCount">31</span>개의 질문</p>
+          <ul class="faq-accordion" id="faqAccordion">
+        <li class="faq-item" data-category="function" id="q-photo-rotate">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">기능 관련</span>
+            <span class="faq-item__text">사진(이미지) 돌리기(회전) 기능이 있나요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>이미지를 선택한 후 하단 툴박스에서 회전 아이콘을 클릭하면 90도씩 시계 방향으로 회전할 수 있습니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="function" id="q-zoom-shortcut">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">기능 관련</span>
+            <span class="faq-item__text">화면 확대/축소 단축키를 알고 싶습니다.</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p><strong>Ctrl + 마우스 스크롤</strong>로 화면을 확대·축소할 수 있습니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="function" id="q-zoom-scroll">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">기능 관련</span>
+            <span class="faq-item__text">화면 확대 시 스크롤이 안 보이는데 어떻게 아래로 내리나요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>손모양(이동) 아이콘을 이용하거나 마우스 휠로 화면을 이동할 수 있습니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="function" id="q-black-bg">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">기능 관련</span>
+            <span class="faq-item__text">흰색 이미지를 검은색 배경 위에 쓰고 싶은데 어떻게 하나요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>강의 배경색을 검정으로 설정하고, 교재를 가져올 때 <strong>"페이지 색상을 반전하기"</strong>에 체크하면 됩니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="function" id="q-bg-color">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">기능 관련</span>
+            <span class="faq-item__text">배경 색상은 어디서 바꾸나요? (예: 초록 → 흰색)</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>상단 메뉴의 <strong>[설정 - 배경/마우스 커서]</strong>를 선택한 뒤 "페이지 배경"에서 색상을 변경할 수 있습니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="function" id="q-note-color">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">기능 관련</span>
+            <span class="faq-item__text">노트 색깔을 검정이나 칠판색으로 바꾸고 싶어요.</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>상단 메뉴의 <strong>[설정 - 배경/마우스 커서]</strong>에서 변경할 수 있습니다. "페이지 배경"에서 그라데이션을 선택하면 칠판 색으로 바뀝니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="function" id="q-pen-press">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">기능 관련</span>
+            <span class="faq-item__text">펜 길게누르기 설정은 어떻게 변경하나요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>윈도우 제어판에서 변경합니다.<br>1. 검색창에 "control"을 입력해 제어판을 실행합니다.<br>2. 보기 기준을 "작은 아이콘"으로 변경합니다.<br>3. "펜 및 터치"를 클릭합니다.<br>4. "길게누르기"를 선택한 뒤 "설정"에서 조정합니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="function" id="q-sound-insert">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">기능 관련</span>
+            <span class="faq-item__text">소리(사운드) 삽입 버튼을 눌러도 아무것도 실행되지 않아요.</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>"사운드 삽입"을 클릭하면 플레이 버튼이 하나 생성됩니다. 이 플레이 버튼에서 마우스 우클릭을 하면 mp3, wav 파일을 연결할 수 있습니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="function" id="q-video-insert">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">기능 관련</span>
+            <span class="faq-item__text">사운드 삽입은 되는데 동영상 삽입 기능은 없나요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>영상 삽입 기능은 없습니다. 필기가 저장되는 폴더에 영상을 미리 준비해 두었다가 필요할 때 폴더에서 열어 사용하는 것을 권장합니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="function" id="q-both-programs">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">기능 관련</span>
+            <span class="faq-item__text">아이캔노트와 아이캔스크린 두 프로그램을 동시에 사용할 수 있나요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>가능합니다. 사용해 보시고 강의에 적합한 프로그램을 선택해 함께 쓰시면 됩니다. 처음엔 적응이 필요하지만 장기적으로 강의에 매우 유용합니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="function" id="q-remote-class">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">기능 관련</span>
+            <span class="faq-item__text">아이캔노트로 원격수업을 하려면 어떻게 하나요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>수업 필기는 아이캔노트로 하고, 화면을 함께 보려면 "팀뷰어"를 추천합니다. 무료이며 설치가 쉽고, 설치 후 내 아이디와 비밀번호를 상대방에게 알려주면 화면을 함께 볼 수 있습니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="function" id="q-teamviewer-pointer">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">기능 관련</span>
+            <span class="faq-item__text">팀뷰어로 강의할 때 태블릿·휴대폰 접속 학생에게는 포인터가 안 보여요.</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>해당 설정은 "팀뷰어" 기능에 있습니다. 팀뷰어의 화면 옵션에서 포인터 표시 설정을 확인해 주세요.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="function" id="q-homework">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">기능 관련</span>
+            <span class="faq-item__text">숙제를 제출받고 첨삭해줄 수 있는 기능이 있나요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>메일 기능이 있어, 필기한 페이지를 메일로 보내면 학생이 인터넷 브라우저에서 해당 페이지를 확인할 수 있습니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="function" id="q-pen-stutter">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">기능 관련</span>
+            <span class="faq-item__text">펜타블렛 사용 중 펜 선이 이어지는(이어짐) 현상이 나타나요.</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>제어판의 타블렛 전용 설정(와콤은 '와콤 타블렛 정보')에서 '더블클릭 간격 조정'을 최소로 줄이거나 완전히 끄면 해결됩니다. (완전히 끄는 것을 추천합니다.)</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="setup" id="q-note-vs-screen">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">설치 및 사용법</span>
+            <span class="faq-item__text">아이캔노트와 아이캔스크린은 어떤 차이인가요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p><strong>아이캔노트</strong>는 pdf·hwp·ppt·doc 등 교재 파일을 불러와 판서하거나, 화이트보드처럼 빈 화면에 판서하는 강의용 프로그램입니다.<br><br><strong>아이캔스크린</strong>은 컴퓨터 화면에 바로 판서하는 프로그램으로, 바탕화면의 동영상·문서 위에 간단히 설명할 때 사용합니다.<br><br><strong>아이캔VOD</strong>는 동영상을 유튜브에 자동 업로드하고, 승인된 학생만 시청하도록 관리하는 서비스입니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="setup" id="q-surface">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">설치 및 사용법</span>
+            <span class="faq-item__text">서피스 프로 X(스냅드래곤 CPU)에서 설치가 가능할까요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>윈도우 기반 컴퓨터에서는 설치가 가능합니다. 스마트폰·스마트패드와 같은 안드로이드 또는 iOS 기기는 지원되지 않습니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="setup" id="q-galaxytab">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">설치 및 사용법</span>
+            <span class="faq-item__text">갤럭시탭에서 실행할 수 있나요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>노트북이나 컴퓨터 같은 윈도우 환경에서만 작동합니다. 스마트폰·갤럭시탭·애플 기기에서는 사용할 수 없습니다. 필기를 위해서는 와콤 태블릿 같은 펜 사용을 추천합니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="setup" id="q-getting-started">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">설치 및 사용법</span>
+            <span class="faq-item__text">처음 설치했어요. 다운로드 위치와 녹음 가능 여부가 궁금합니다.</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>1. 공식 네이버 카페의 "아이캔노트" 게시판에서 다운로드합니다.<br>2. 판서와 함께 녹화(녹음)가 가능합니다.<br>3. 갤럭시탭에서는 구동되지 않고, 윈도우 O/S에서만 동작합니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="license" id="q-monetize">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">라이선스 및 오류</span>
+            <span class="faq-item__text">강의를 유튜브 등 다른 매체로 수익 창출해도 되나요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>아이캔노트/스크린으로 강의한 동영상이나 출력물의 저작권은 사용자에게 있습니다. 유튜브 등 다른 매체로 수익을 창출하셔도 모든 수익은 사용자 본인의 것입니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="license" id="q-school-license">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">라이선스 및 오류</span>
+            <span class="faq-item__text">개인이 아닌 학교 단위로 사용해도 저작권 문제가 없을까요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>네, 아이캔노트/스크린은 개인·기업·단체·기관 등 사용자를 구분하지 않고 누구나 무료로 사용할 수 있습니다. 이를 이용한 2차 저작물(영상·이미지·파일 등)의 모든 권리와 의무도 사용자에게 주어집니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="license" id="q-uxi-error">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">라이선스 및 오류</span>
+            <span class="faq-item__text">실행 시 "사용자 정보를 확인하는 중 오류가 발생(Uxi-10385)" 메시지가 떠요.</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>PC가 방화벽 안에 있거나 인터넷이 없는 환경인지 확인해 주세요. 프로그램 시작 시 서버와의 통신이 실패한 경우 발생하는 오류입니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="save" id="q-record-nosound">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">저장 및 녹화</span>
+            <span class="faq-item__text">녹화 시 영상은 나오는데 소리가 들리지 않습니다.</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>윈도우 소리 설정에서 마이크 볼륨을 확인해 주세요. 볼륨이 너무 작으면 녹음이 되지 않습니다. 또한 마이크가 여러 개(기본 마이크·헤드셋·USB 마이크 등)인 경우, 실제 사용할 마이크가 올바르게 선택되어 있는지 확인해 주세요.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="save" id="q-record-nosound2">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">저장 및 녹화</span>
+            <span class="faq-item__text">화면 녹화는 되는데 소리가 안 나옵니다.</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>윈도우 소리 설정을 확인해 주세요. 자세한 방법은 공식 카페 글을 참고하시면 도움이 됩니다.<br><a href="https://cafe.naver.com/icannote/862" target="_blank" rel="noopener">https://cafe.naver.com/icannote/862</a></p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="save" id="q-record-video">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">저장 및 녹화</span>
+            <span class="faq-item__text">동영상 파일을 재생하면서 그 소리까지 함께 녹화하려면 어떻게 하나요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>동영상에서 나오는 소리와 함께 녹화하려면 아래 공식 카페 글을 참고해 설정해 주세요.<br><a href="https://cafe.naver.com/icannote/862" target="_blank" rel="noopener">https://cafe.naver.com/icannote/862</a></p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="save" id="q-record-cam">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">저장 및 녹화</span>
+            <span class="faq-item__text">화면 녹화 중 캠으로 얼굴을 넣으려는데 캠 화면이 녹화되지 않아요.</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>아이캔노트(또는 필기 영역)만 녹화하는 경우, 캠을 독립된 창이 아닌 아이캔노트 내부 창에서 실행해야 합니다. 캠 화면 좌측 상단 버튼을 클릭하면 "독립창 ↔ 내부창"으로 실행 모드를 변경할 수 있습니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="save" id="q-katalk-quality">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">저장 및 녹화</span>
+            <span class="faq-item__text">녹화 영상을 카톡으로 받으면 화질이 떨어집니다.</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>카톡은 기본적으로 동영상 용량을 줄이도록 설정되어 있습니다. 카톡 <strong>[설정 → 채팅]</strong>의 "동영상 변환" 항목을 끄면 원본 영상을 그대로 전송해 화질 저하가 발생하지 않습니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="save" id="q-vod-diff">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">저장 및 녹화</span>
+            <span class="faq-item__text">아이캔노트와 아이캔VOD는 무슨 차이인가요? 녹화하면 자동 재생되나요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>아이캔VOD는 녹화된 영상을 유튜브에 자동 업로드하고, 업로드된 영상과 시청자를 관리하는 프로그램입니다.<br>아이캔노트에서 녹화한 영상은 "녹화 설정"의 "저장 경로" 항목에서 저장 폴더를 지정하거나 확인할 수 있습니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="file" id="q-save-icn">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">파일 관리</span>
+            <span class="faq-item__text">불러온 파일과 판서 내용을 저장해 다음에 이어서 쓸 수 있나요?</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>상단 메뉴의 <strong>[저장/인쇄 - 저장하기]</strong>를 선택하면 *.icn 형식으로 저장됩니다. *.icn 파일에는 교재로 사용된 pdf·hwp 내용과 판서 내용이 함께 저장되며, 다시 불러오면 판서 내용을 수정할 수도 있습니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="file" id="q-hwp-error">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">파일 관리</span>
+            <span class="faq-item__text">아래한글(한글 2018) 파일을 불러오면 에러가 납니다.</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>한글 프로그램의 업데이트 또는 재설치를 해보시기 바랍니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="file" id="q-ppt-anim">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">파일 관리</span>
+            <span class="faq-item__text">PPT를 불러오면 만들어 둔 애니메이션 효과가 표현되지 않아요.</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>ppt 슬라이드의 애니메이션 효과는 지원되지 않습니다. 애니메이션을 활용하려면 아이캔스크린을 사용하시는 것을 권장합니다.</p></div></div>
+        </li>
+
+        <li class="faq-item" data-category="file" id="q-hwp-pages">
+          <button type="button" class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__tag">파일 관리</span>
+            <span class="faq-item__text">한글 파일이 어떤 건 페이지당 2장, 어떤 건 1장씩 불러와집니다.</span>
+            <svg class="faq-item__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner"><p>한글 문서의 인쇄 설정이 "모아찍기"로 되어 있을 수 있습니다. 인쇄를 기본 인쇄로 바꾸고 미리 보기를 한 뒤 저장하고 다시 불러오세요.</p></div></div>
+        </li>
+          </ul>
+          <p class="faq-empty" id="faqEmpty" hidden>검색 결과가 없어요. 다른 키워드로 찾아보세요.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 05. 답을 못 찾았나요? (관련 도움) ===================== -->
+    <section class="faq-help" aria-labelledby="faq-help-title">
+      <div class="faq-help__card">
+        <h2 id="faq-help-title" class="faq-help__title">원하는 답변을 찾지 못했나요?</h2>
+        <p class="faq-help__desc">아이캔노트 사용 중 해결되지 않는 문제가 있다면<br />공식카페에서 더 자세한 도움을 받아보세요.</p>
+        <div class="faq-help__actions">
+          <a class="faq-help__btn faq-help__btn--primary" href="https://cafe.naver.com/icannote" target="_blank" rel="noopener">공식카페 바로가기 <span aria-hidden="true">→</span></a>
+          <a class="faq-help__btn" href="usecases.html">사용 예시 영상 보기 <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span class="site-footer__logo">ICANNOTE</span>
+      <span class="site-footer__copy">Copyright © ICANNOTE. All rights Reserved.</span>
+    </div>
+  </footer>
+
+  <script src="faq.js"></script>
+</body>
+</html>
