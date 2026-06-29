@@ -22,7 +22,12 @@
   <header class="site-header">
     <nav class="nav" aria-label="주요 메뉴">
       <a class="nav-brand" href="index.html">ICANNOTE</a>
-      <ul class="nav-links">
+      <button type="button" class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navMenu">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <ul class="nav-links" id="navMenu">
         <li><a href="usecases.html" aria-current="page">사용 예시</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="https://cafe.naver.com/f-e/cafes/27554176/menus/12?viewType=L" target="_blank" rel="noopener">공식카페</a></li>
@@ -439,6 +444,7 @@
     </div>
   </footer>
 
+  <script src="nav.js" defer></script>
   <script src="usecases.js"></script>
 </body>
 </html>

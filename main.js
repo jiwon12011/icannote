@@ -224,11 +224,22 @@
   let timer = null;
   const list = document.querySelector('.tools-list');
 
+  // 활성 아이템이 보이도록 — 리스트 컨테이너 '안에서만' 스크롤(페이지/윈도우는 건드리지 않음).
+  // scrollIntoView는 윈도우까지 스크롤해서, 다른 섹션을 보고 있어도 페이지가 끌려 내려가는 문제가 있었음.
+  function scrollItemIntoList(item) {
+    if (!list) return;
+    const ir = item.getBoundingClientRect();
+    const lr = list.getBoundingClientRect();
+    let delta = 0;
+    if (ir.top < lr.top) delta = ir.top - lr.top - 8;
+    else if (ir.bottom > lr.bottom) delta = ir.bottom - lr.bottom + 8;
+    if (delta) list.scrollBy({ top: delta, behavior: 'smooth' });
+  }
+
   function next() {
     current = (current + 1) % items.length;
     select(current);
-    // 활성 아이템이 보이도록 스크롤
-    items[current].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    scrollItemIntoList(items[current]);
   }
 
   function startAuto() {

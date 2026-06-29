@@ -195,6 +195,23 @@ ul {
   font-weight: 800;
 }
 
+/* 햄버거 버튼 — 데스크탑에서는 숨김, 모바일(≤809)에서만 표시 */
+.nav-toggle {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  width: 42px; height: 42px; padding: 0;
+  background: transparent; border: 0; border-radius: 12px; cursor: pointer;
+}
+.nav-toggle__bar {
+  display: block; width: 24px; height: 3px; margin: 0 auto;
+  background: var(--color-text-dark); border-radius: 2px;
+  transition: transform .25s ease, opacity .2s ease;
+}
+/* 열렸을 때 X 자 (간격 5px + 두께 3px = 8px 이동) */
+.nav.is-open .nav-toggle__bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav.is-open .nav-toggle__bar:nth-child(2) { opacity: 0; }
+.nav.is-open .nav-toggle__bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
 /* =========================================================
    히어로
    배경 이미지(오렌지 그라데이션+물결)는 그대로. CSS 그라데이션 덧대지 않음.
@@ -436,32 +453,52 @@ ul {
 
   .hero {
     min-height: auto;
-    padding-block: var(--space-20);
+    /* 고정(fixed) nav 아래로 충분히 띄움 */
+    padding-top: calc(var(--space-24) + var(--space-4));
+    padding-bottom: var(--space-16);
   }
 
   /* 글래스 부담 줄이기: backdrop-filter 제거 + 불투명 대체.
      로고+링크 3개가 한 줄에 안전히 들어오도록 패딩·gap·폰트 축소 + 줄바꿈 방지 */
   .nav {
+    position: relative;
     gap: var(--space-3);
-    padding: var(--space-2) var(--space-4);
-    background: rgba(255, 255, 255, .14);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    padding: var(--space-2) var(--space-3) var(--space-2) var(--space-5);
+    /* 거의 불투명 — 고정 nav 아래로 지나가는 콘텐츠가 비쳐 보이지 않게 */
+    background: rgba(255, 255, 255, .96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .07);
   }
 
   .nav-brand {
-    font-size: 15px;
+    font-size: 16px;
     white-space: nowrap;
   }
 
+  /* 햄버거 표시 */
+  .nav-toggle { display: inline-flex; }
+
+  /* 링크는 pill 아래로 떨어지는 드롭다운 패널로 */
   .nav-links {
-    gap: var(--space-3);
+    position: absolute; top: calc(100% + 10px); right: 0;
+    flex-direction: column; align-items: stretch; gap: 2px;
+    min-width: 190px; padding: var(--space-2);
+    background: #fff; border: 1px solid rgba(0, 0, 0, .07); border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    opacity: 0; visibility: hidden; transform: translateY(-8px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s;
   }
+  .nav.is-open .nav-links { opacity: 1; visibility: visible; transform: translateY(0); }
 
+  .nav-links li { width: 100%; }
   .nav-links a {
-    font-size: 12px;
+    display: block; width: 100%;
+    padding: 12px 14px; border-radius: 10px;
+    font-size: 15px; color: var(--color-text-dark); text-shadow: none;
     white-space: nowrap;
   }
+  .nav-links a:hover { opacity: 1; background: rgba(26, 111, 255, .08); }
 
   /* 떠다니는 오브젝트는 전부 숨김 → 중앙 텍스트만 깔끔히 */
   .hero-objects,
@@ -1101,6 +1138,10 @@ ul {
   gap: 4px;
   white-space: nowrap;
   pointer-events: none;
+}
+/* 모바일: 제목이 줄바꿈되면 좌표가 어긋나 가로로 삐져나옴 → 장식 라벨 숨김 */
+@media (max-width: 809px) {
+  .series-callout { display: none; }
 }
 .series-callout__label {
   font-family: 'Nanum Pen Script', cursive;
@@ -1943,6 +1984,8 @@ ul {
 @media (max-width: 809px) {
   .faq-popular__grid { grid-template-columns: 1fr; }
   .faq-list__inner { grid-template-columns: 1fr; gap: var(--space-6); }
+  /* min-width:0 — 그리드 칸이 내용보다 좁아질 수 있게 해서 가로 스크롤이 실제로 작동(가로 넘침 방지) */
+  .faq-side, .faq-main { min-width: 0; }
   /* 좌측 카테고리 → 상단 가로 스크롤 탭 */
   .faq-side { position: static; }
   .faq-side__nav {
