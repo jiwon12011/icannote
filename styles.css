@@ -1197,14 +1197,14 @@ ul {
   min-height: 280px;
   display: flex; align-items: center;
   background-image: -webkit-image-set(
-    url('assets/cta/cta-rainbow-ring-gray-wide.webp') type('image/webp'),
-    url('assets/cta/cta-rainbow-ring-gray-wide.png') type('image/png')
+    url('assets/cta/cta-rainbow-ring-sky-wide.webp') type('image/webp'),
+    url('assets/cta/cta-rainbow-ring-sky-wide.png') type('image/png')
   );
   background-image: image-set(
-    url('assets/cta/cta-rainbow-ring-gray-wide.webp') type('image/webp'),
-    url('assets/cta/cta-rainbow-ring-gray-wide.png') type('image/png')
+    url('assets/cta/cta-rainbow-ring-sky-wide.webp') type('image/webp'),
+    url('assets/cta/cta-rainbow-ring-sky-wide.png') type('image/png')
   );
-  background-color: #E5E7EB;
+  background-color: #EAF5FF;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1967,14 +1967,14 @@ ul {
 /* CTA: 로고 링 이미지는 유지하고 배경만 블루 테마에 맞춘다 */
 .theme-blue .cta {
   background-image: -webkit-image-set(
-    url('assets/cta/cta-rainbow-ring-gray-wide.webp') type('image/webp'),
-    url('assets/cta/cta-rainbow-ring-gray-wide.png') type('image/png')
+    url('assets/cta/cta-rainbow-ring-sky-wide.webp') type('image/webp'),
+    url('assets/cta/cta-rainbow-ring-sky-wide.png') type('image/png')
   );
   background-image: image-set(
-    url('assets/cta/cta-rainbow-ring-gray-wide.webp') type('image/webp'),
-    url('assets/cta/cta-rainbow-ring-gray-wide.png') type('image/png')
+    url('assets/cta/cta-rainbow-ring-sky-wide.webp') type('image/webp'),
+    url('assets/cta/cta-rainbow-ring-sky-wide.png') type('image/png')
   );
-  background-color: #E5E7EB;
+  background-color: #EAF5FF;
 }
 .theme-blue .cta::before { display: none; }
 
