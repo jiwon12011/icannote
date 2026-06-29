@@ -1186,26 +1186,27 @@ ul {
 }
 .series-card--featured .series-card__btn:hover { color: #fff; filter: brightness(1.05); }
 
-/* CTA 밴드 — 배경은 CSS로 깔고 무지개 링만 투명 PNG로 배치 */
+/* CTA 밴드 — 무지개 링 와이드 배너를 배경으로, 텍스트는 좌측 오버레이 */
 .cta {
   position: relative; overflow: hidden;
   max-width: var(--container-max);
   margin: var(--space-20) auto 0;
   border-radius: 36px;
   padding: var(--space-12) var(--space-16);
+  /* 시안처럼 납작한 밴드: 이미지를 와이드로 크롭(cover) */
   min-height: 280px;
   display: flex; align-items: center;
   background-image: -webkit-image-set(
-    url('assets/cta/cta-rainbow-ring-cutout.webp') type('image/webp'),
-    url('assets/cta/cta-rainbow-ring-cutout.png') type('image/png')
+    url('assets/cta/cta-rainbow-ring-gray-wide.webp') type('image/webp'),
+    url('assets/cta/cta-rainbow-ring-gray-wide.png') type('image/png')
   );
   background-image: image-set(
-    url('assets/cta/cta-rainbow-ring-cutout.webp') type('image/webp'),
-    url('assets/cta/cta-rainbow-ring-cutout.png') type('image/png')
+    url('assets/cta/cta-rainbow-ring-gray-wide.webp') type('image/webp'),
+    url('assets/cta/cta-rainbow-ring-gray-wide.png') type('image/png')
   );
-  background-color: #EAF5FF;
-  background-size: min(52%, 680px) auto;
-  background-position: right 6% center;
+  background-color: #E5E7EB;
+  background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
   text-align: left;
 }
@@ -1262,8 +1263,8 @@ ul {
     aspect-ratio: auto; text-align: left;
     padding: var(--space-12) var(--space-8);
     /* 모바일: 링이 우측에서 잘리므로 텍스트 가독성용 오버레이 */
-    background-position: right -30% bottom 50%;
-    background-size: min(78%, 420px) auto;
+    background-position: right center;
+    background-size: cover;
   }
   .cta::before {
     content: ""; position: absolute; inset: 0; z-index: 0;
@@ -1966,14 +1967,14 @@ ul {
 /* CTA: 로고 링 이미지는 유지하고 배경만 블루 테마에 맞춘다 */
 .theme-blue .cta {
   background-image: -webkit-image-set(
-    url('assets/cta/cta-rainbow-ring-cutout.webp') type('image/webp'),
-    url('assets/cta/cta-rainbow-ring-cutout.png') type('image/png')
+    url('assets/cta/cta-rainbow-ring-gray-wide.webp') type('image/webp'),
+    url('assets/cta/cta-rainbow-ring-gray-wide.png') type('image/png')
   );
   background-image: image-set(
-    url('assets/cta/cta-rainbow-ring-cutout.webp') type('image/webp'),
-    url('assets/cta/cta-rainbow-ring-cutout.png') type('image/png')
+    url('assets/cta/cta-rainbow-ring-gray-wide.webp') type('image/webp'),
+    url('assets/cta/cta-rainbow-ring-gray-wide.png') type('image/png')
   );
-  background-color: #EAF5FF;
+  background-color: #E5E7EB;
 }
 .theme-blue .cta::before { display: none; }
 
