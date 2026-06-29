@@ -190,6 +190,10 @@ ul {
 .nav-links a:hover {
   opacity: .7;
 }
+.nav-links a[href*="cafe.naver.com"],
+.nav-links a[href*="#cafe"] {
+  font-weight: 800;
+}
 
 /* =========================================================
    히어로
