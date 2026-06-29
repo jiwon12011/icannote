@@ -77,10 +77,13 @@
 
         <!-- 가운데 큰 카드 -->
         <article class="why-card why-card--main reveal" style="transition-delay:.05s">
-          <picture class="why-card__bg">
-            <source srcset="assets/why-feature/why-main-direct-annotation-gray.webp" type="image/webp" />
+          <div class="why-card__bg">
             <img src="assets/why-feature/why-main-direct-annotation-gray.png" alt="" loading="lazy" decoding="async" />
-          </picture>
+            <video autoplay muted loop playsinline preload="metadata"
+                   poster="assets/why-feature/why-main-direct-annotation-gray.png" aria-hidden="true">
+              <source src="assets/why-feature/why-main-annotation.mp4" type="video/mp4" />
+            </video>
+          </div>
           <div class="why-card__overlay">
             <h3>자료 위 바로 판서</h3>
             <p>PDF, 이미지, 파워포인트 자료를 불러와 그 위에 바로 쓰고 설명할 수 있어요.</p>

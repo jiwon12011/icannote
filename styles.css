@@ -661,10 +661,17 @@ ul {
   padding: 0;
 }
 .why-card--main .why-card__bg { position: absolute; inset: 0; overflow: hidden; }
-.why-card--main .why-card__bg img {
+.why-card--main .why-card__bg img,
+.why-card--main .why-card__bg video {
+  position: absolute; inset: 0;
   display: block; width: 100%; height: 100%; object-fit: cover;
   object-position: center center;
-  transform: scale(1.08);
+}
+/* 영상이 정지 이미지(포스터) 위에 깔림 */
+.why-card--main .why-card__bg video { z-index: 1; }
+/* 모션 민감 사용자: 영상 끄고 정지 이미지만 */
+@media (prefers-reduced-motion: reduce) {
+  .why-card--main .why-card__bg video { display: none; }
 }
 .why-card--main .why-card__overlay {
   position: relative; z-index: 1;
