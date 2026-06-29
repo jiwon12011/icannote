@@ -1848,7 +1848,7 @@ ul {
   max-width: var(--container-max); margin-inline: auto;
   display: grid; grid-template-columns: 220px 1fr; gap: var(--space-10); align-items: start;
 }
-.faq-side { position: sticky; top: var(--space-10); }
+.faq-side { position: sticky; top: 100px; align-self: start; }
 .faq-side__nav { display: flex; flex-direction: column; gap: var(--space-1); }
 .faq-side__btn {
   width: 100%; text-align: left; cursor: pointer; font-family: inherit;

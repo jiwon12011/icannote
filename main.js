@@ -220,7 +220,39 @@
     if (caption && descriptions[idx]) caption.innerHTML = descriptions[idx];
   }
 
+  let current = 0;
+  let timer = null;
+  const list = document.querySelector('.tools-list');
+
+  function next() {
+    current = (current + 1) % items.length;
+    select(current);
+    // 활성 아이템이 보이도록 스크롤
+    items[current].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+
+  function startAuto() {
+    timer = setInterval(next, 5000);
+  }
+
+  function stopAuto() {
+    clearInterval(timer);
+    timer = null;
+  }
+
   items.forEach((btn, idx) => {
-    btn.addEventListener('click', () => select(idx));
+    btn.addEventListener('click', () => {
+      stopAuto();
+      current = idx;
+      select(idx);
+    });
   });
+
+  if (list) {
+    list.addEventListener('mouseenter', stopAuto);
+    list.addEventListener('mouseleave', startAuto);
+  }
+
+  select(0);
+  startAuto();
 })();

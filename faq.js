@@ -75,13 +75,23 @@
   });
 
   // 좌측 카테고리 필터
-  sideBtns.forEach((b) => b.addEventListener('click', () => setFilter(b.dataset.filter)));
+  sideBtns.forEach((b) => b.addEventListener('click', () => {
+    setFilter(b.dataset.filter);
+    const list = document.getElementById('faq-list');
+    if (list) {
+      const top = list.getBoundingClientRect().top + window.scrollY - 110;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }));
 
   // 카테고리 카드 → 필터 적용 후 목록으로 스크롤
   catCards.forEach((c) => c.addEventListener('click', () => {
     setFilter(c.dataset.jump);
     const list = document.getElementById('faq-list');
-    if (list) list.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (list) {
+      const top = list.getBoundingClientRect().top + window.scrollY - 110;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   }));
 
   // 많이 찾는 질문 → 해당 항목 펼치고 스크롤
