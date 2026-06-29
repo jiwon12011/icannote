@@ -496,7 +496,7 @@ ul {
    ========================================================= */
 .why {
   background: var(--color-cream);
-  padding: var(--space-20) var(--container-pad);
+  padding: var(--space-14) var(--container-pad);
 }
 
 .why-grid {
@@ -508,18 +508,19 @@ ul {
     "intro main tools"
     "intro main files"
     "board save  record";
-  gap: 22px;
+  grid-template-rows: repeat(3, minmax(0, 154px));
+  gap: 18px;
 }
 
 /* 좌측 인트로 */
-.why-intro { grid-area: intro; align-self: center; }
+.why-intro { grid-area: intro; align-self: start; padding-top: 4px; }
 .why-label {
   font-size: 14px; font-weight: 800; letter-spacing: .08em;
-  color: #1A6FFF; margin-bottom: var(--space-4);
+  color: #1A6FFF; margin-bottom: var(--space-3);
 }
 .why-heading {
-  font-size: clamp(26px, 2.8vw, 40px); font-weight: 800; line-height: 1.34;
-  color: var(--color-text-dark); margin-bottom: var(--space-5);
+  font-size: clamp(25px, 2.7vw, 38px); font-weight: 800; line-height: 1.28;
+  color: var(--color-text-dark); margin-bottom: var(--space-4);
 }
 .why-heading .hl { color: #1A6FFF; }
 .why-hl-wrap { position: relative; display: inline-block; }
@@ -595,7 +596,7 @@ ul {
   .flow-star path { animation: none; stroke-dashoffset: 0; }
 }
 .why-desc {
-  font-size: 17px; line-height: 1.75; color: var(--color-text-secondary); max-width: 32ch;
+  font-size: 16px; line-height: 1.65; color: var(--color-text-secondary); max-width: 32ch;
 }
 
 /* 공통 카드 */
@@ -606,7 +607,10 @@ ul {
   box-shadow: var(--shadow-md);
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  min-height: 0;
+  padding: 22px;
 }
 .why-card--tools  { grid-area: tools; }
 .why-card--files  { grid-area: files; }
@@ -614,51 +618,60 @@ ul {
 .why-card--save   { grid-area: save; }
 .why-card--record { grid-area: record; }
 
-.why-card__text { padding: var(--space-6) var(--space-6) var(--space-3); }
-.why-card__text h3 {
-  font-size: clamp(18px, 1.4vw, 21px); font-weight: 800;
-  color: var(--color-text-dark); margin-bottom: var(--space-2);
+.why-card__icon {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: #F0F6FF;
 }
-.why-card__text p { font-size: 16px; line-height: 1.7; color: var(--color-text-secondary); }
-
-.why-card__media {
-  display: block; margin-top: auto;
-  height: clamp(160px, 16vw, 200px);
-  background: #FBF4EC;
-}
-.why-card__media img {
-  display: block; width: 100%; height: 100%;
+.why-card__icon img {
+  display: block;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
 }
+.why-card__text { padding: 0; }
+.why-card__text h3 {
+  font-size: clamp(17px, 1.25vw, 20px); font-weight: 800;
+  color: var(--color-text-dark); margin-bottom: 8px;
+}
+.why-card__text p { font-size: 15px; line-height: 1.55; color: var(--color-text-secondary); }
 
 /* 가운데 큰 카드 (오렌지 일러스트 배경 + 텍스트 오버레이) */
 .why-card--main {
   grid-area: main;
   position: relative;
   border: none;
-  min-height: 360px;
+  min-height: 326px;
+  padding: 0;
 }
-.why-card--main .why-card__bg { position: absolute; inset: 0; }
+.why-card--main .why-card__bg { position: absolute; inset: 0; overflow: hidden; }
 .why-card--main .why-card__bg img {
   display: block; width: 100%; height: 100%; object-fit: cover;
+  object-position: center center;
+  transform: scale(1.08);
 }
 .why-card--main .why-card__overlay {
   position: relative; z-index: 1;
-  padding: var(--space-8);
+  padding: var(--space-6);
 }
 .why-card--main .why-card__overlay h3 {
-  font-size: clamp(22px, 2vw, 28px); font-weight: 800; color: #fff;
-  margin-bottom: var(--space-3); text-shadow: 0 2px 10px rgba(0, 0, 0, .25);
+  font-size: clamp(22px, 2vw, 28px); font-weight: 800; color: #1A6FFF;
+  margin-bottom: var(--space-3);
 }
 .why-card--main .why-card__overlay p {
-  font-size: 15px; line-height: 1.7; color: rgba(255, 255, 255, .96);
-  max-width: 26ch; text-shadow: 0 1px 8px rgba(0, 0, 0, .25);
+  font-size: 15px; line-height: 1.7; color: #2878E8;
+  max-width: 26ch;
 }
 
 /* 반응형 */
 @media (max-width: 1279px) {
   .why-grid {
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
     grid-template-areas:
       "intro  intro"
       "main   tools"
@@ -670,11 +683,13 @@ ul {
 @media (max-width: 809px) {
   .why-grid {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
     grid-template-areas:
       "intro" "main" "tools" "files" "board" "save" "record";
     gap: 16px;
   }
   .why-card--main { min-height: 280px; }
+  .why-card { padding: 20px; }
 }
 
 /* =========================================================
@@ -976,10 +991,10 @@ ul {
 }
 
 /* =========================================================
-   스탯 (오렌지 라운드 카드)
+   스탯
    ========================================================= */
 .stats {
-  background: var(--color-cream);
+  background: #F3F4F6;
   padding: var(--space-20) var(--container-pad);
 }
 .stats-grid {
@@ -996,14 +1011,14 @@ ul {
   text-align: center;
   display: flex; flex-direction: column; align-items: center; gap: 6px;
 }
-/* 아이콘 뒤 주황 라운드 박스 */
+/* 아이콘 뒤 연한 그레이 라운드 박스 */
 .stat-card__icon {
   width: 104px; height: 104px;
   border-radius: 26px;
-  background: linear-gradient(160deg, #FF9D52 0%, var(--color-orange-main) 50%, var(--color-orange-deep) 100%);
+  background: #E5E7EB;
   display: grid; place-items: center;
   margin-bottom: var(--space-5);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, .14);
+  box-shadow: 0 14px 30px rgba(31, 45, 65, .12);
 }
 .stat-card__icon img {
   width: 68px; height: 68px; object-fit: contain;
@@ -1122,29 +1137,29 @@ ul {
   min-height: 280px;
   display: flex; align-items: center;
   background-image: -webkit-image-set(
-    url('assets/cta/cta-rainbow-ring-wide.webp') type('image/webp'),
-    url('assets/cta/cta-rainbow-ring-wide.png') type('image/png')
+    url('assets/cta/cta-rainbow-ring-gray-wide.webp') type('image/webp'),
+    url('assets/cta/cta-rainbow-ring-gray-wide.png') type('image/png')
   );
   background-image: image-set(
-    url('assets/cta/cta-rainbow-ring-wide.webp') type('image/webp'),
-    url('assets/cta/cta-rainbow-ring-wide.png') type('image/png')
+    url('assets/cta/cta-rainbow-ring-gray-wide.webp') type('image/webp'),
+    url('assets/cta/cta-rainbow-ring-gray-wide.png') type('image/png')
   );
-  background-color: var(--color-orange-main);
-  background-size: 65% auto;
-  background-position: right center;
+  background-color: #E5E7EB;
+  background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
   text-align: left;
 }
 .cta__text { position: relative; z-index: 2; max-width: 52%; }
 .cta__title {
-  font-size: clamp(24px, 2.8vw, 36px); font-weight: 800; color: #fff;
+  font-size: clamp(24px, 2.8vw, 36px); font-weight: 800; color: #111827;
   line-height: 1.35; margin-bottom: var(--space-3);
 }
-.cta__desc { font-size: clamp(15px, 1.4vw, 18px); color: rgba(255, 255, 255, .92); margin-bottom: var(--space-8); }
+.cta__desc { font-size: clamp(15px, 1.4vw, 18px); color: #4B5563; margin-bottom: var(--space-8); }
 .cta__actions { display: flex; align-items: center; gap: var(--space-6); flex-wrap: wrap; }
 .cta__btn {
   display: inline-flex; align-items: center; gap: 8px;
-  background: #fff; color: var(--color-orange-deep);
+  background: #fff; color: #1A6FFF;
   font-size: 16px; font-weight: 800;
   padding: 15px 30px; border-radius: 999px;
   text-decoration: none;
@@ -1154,14 +1169,14 @@ ul {
 .cta__btn:hover { transform: translateY(-2px); }
 .cta__link {
   display: inline-flex; align-items: center; gap: 8px;
-  color: #fff; font-size: 16px; font-weight: 800;
+  color: #111827; font-size: 16px; font-weight: 800;
   text-decoration: none;
-  border: 2px solid rgba(255,255,255,.85);
+  border: 2px solid rgba(17, 24, 39, .24);
   border-radius: 100px;
   padding: 14px 28px;
   transition: background .2s ease, transform .2s ease;
 }
-.cta__link:hover { background: rgba(255,255,255,.12); transform: translateY(-2px); }
+.cta__link:hover { background: rgba(255, 255, 255, .44); transform: translateY(-2px); }
 
 /* 푸터 */
 .site-footer {
@@ -1193,7 +1208,7 @@ ul {
   }
   .cta::before {
     content: ""; position: absolute; inset: 0; z-index: 0;
-    background: linear-gradient(90deg, var(--color-orange-main) 30%, rgba(255, 122, 61, .15) 100%);
+    background: rgba(63, 69, 77, .86);
   }
   .cta__text { max-width: 100%; }
 }
@@ -1883,10 +1898,17 @@ ul {
 .theme-blue .series-badge { background: rgba(26, 111, 255, .12); }
 .theme-blue .series-card:hover { box-shadow: 0 20px 44px rgba(26, 111, 255, .16); border-color: rgba(61, 155, 255, .35); }
 .theme-blue .series-card--featured { background: linear-gradient(180deg, #FBFDFF 0%, #ECF4FF 100%); box-shadow: 0 20px 44px rgba(26, 111, 255, .16); }
-/* CTA: 주황 무지개링 이미지 대신 블루 그라데이션 밴드(블루 에셋 부재) */
+/* CTA: 로고 링 이미지는 유지하고 배경만 블루 테마에 맞춘다 */
 .theme-blue .cta {
-  background-image: none;
-  background: radial-gradient(120% 160% at 88% -10%, #5AACFF 0%, rgba(90, 172, 255, 0) 55%), linear-gradient(135deg, #3D9BFF 0%, #1A6FFF 100%);
+  background-image: -webkit-image-set(
+    url('assets/cta/cta-rainbow-ring-gray-wide.webp') type('image/webp'),
+    url('assets/cta/cta-rainbow-ring-gray-wide.png') type('image/png')
+  );
+  background-image: image-set(
+    url('assets/cta/cta-rainbow-ring-gray-wide.webp') type('image/webp'),
+    url('assets/cta/cta-rainbow-ring-gray-wide.png') type('image/png')
+  );
+  background-color: #E5E7EB;
 }
 .theme-blue .cta::before { display: none; }
 
