@@ -128,13 +128,21 @@ ul {
    히어로 위에 떠 있는 둥근 바.
    ========================================================= */
 .site-header {
-  position: absolute;
+  position: fixed;
   top: var(--space-6);
   left: 0;
   right: 0;
   z-index: 20;
-  /* .container 와 동일한 좌우 거터로 pill 폭을 컨테이너에 맞춤 */
   padding-inline: var(--container-pad);
+}
+.site-header.scrolled {
+  position: fixed;
+  top: 0;
+  padding-block: var(--space-3);
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 2px 16px rgba(0,0,0,.08);
 }
 
 .nav {
@@ -1042,7 +1050,7 @@ ul {
    ========================================================= */
 .series {
   background: var(--color-cream);
-  padding: var(--space-20) var(--container-pad) var(--space-24);
+  padding: 160px var(--container-pad) var(--space-32);
   text-align: center;
 }
 .series-badge {
@@ -1057,6 +1065,57 @@ ul {
   font-size: clamp(28px, 3.4vw, 44px); font-weight: 800;
   color: var(--color-text-dark);
   margin-bottom: var(--space-14);
+}
+
+/* 시리즈 콜아웃 (화살표 + 레이블) */
+.series-hl-wrap {
+  position: relative;
+  display: inline-block;
+}
+.series-callout {
+  position: absolute;
+  top: -2.4em;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.series-callout__label {
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 400;
+  color: #1A6FFF;
+  opacity: 0;
+  transition: opacity .5s ease .1s;
+}
+.series-callout__arrow {
+  display: block;
+  opacity: 1;
+  transform: none;
+}
+/* 왼쪽 획 */
+.series-callout__path--l {
+  stroke-dasharray: 14;
+  stroke-dashoffset: 14;
+  transition: stroke-dashoffset .3s ease .5s;
+}
+/* 오른쪽 획 */
+.series-callout__path--r {
+  stroke-dasharray: 14;
+  stroke-dashoffset: 14;
+  transition: stroke-dashoffset .3s ease .85s;
+}
+/* 트리거 */
+.series-title.is-visible .series-callout__label {
+  opacity: 1;
+}
+.series-title.is-visible .series-callout__path--l,
+.series-title.is-visible .series-callout__path--r {
+  stroke-dashoffset: 0;
 }
 
 .series-grid {
@@ -1497,7 +1556,7 @@ ul {
    ------------------------------------------------------------------------- */
 .uc-videos {
   background: var(--color-cream);
-  padding: var(--space-20) var(--container-pad) var(--space-24);
+  padding: 160px var(--container-pad) var(--space-32);
 }
 .uc-videos__head { text-align: center; margin-bottom: var(--space-10); }
 .uc-videos__head .series-title { margin-bottom: 0; }
