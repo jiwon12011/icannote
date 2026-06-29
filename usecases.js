@@ -32,3 +32,45 @@
     });
   });
 })();
+
+/* =========================================================
+   유튜브 영상 카드 — data-yt="영상ID"
+   - 썸네일은 영상 ID로 자동 로드(maxres → 없으면 hq 폴백)
+   - 클릭하면 그 자리에서 인라인 재생(JS 없으면 href로 유튜브 이동)
+   ========================================================= */
+(function initYouTubeCards() {
+  const cards = Array.from(document.querySelectorAll('[data-yt]'));
+  if (!cards.length) return;
+
+  cards.forEach((card) => {
+    const id = card.dataset.yt;
+    const img = card.querySelector('img');
+
+    // maxresdefault가 없는 영상이면 회색 플레이스홀더(120x90)가 옴 → hqdefault로 교체
+    if (img) {
+      img.addEventListener('error', function onErr() {
+        img.removeEventListener('error', onErr);
+        img.src = 'https://img.youtube.com/vi/' + id + '/hqdefault.jpg';
+      });
+      img.addEventListener('load', function onLoad() {
+        if (img.naturalWidth <= 120) {
+          img.removeEventListener('load', onLoad);
+          img.src = 'https://img.youtube.com/vi/' + id + '/hqdefault.jpg';
+        }
+      });
+    }
+
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      const player = document.createElement('div');
+      player.className = card.className + ' is-playing';
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+      iframe.title = card.getAttribute('aria-label') || 'YouTube 영상';
+      iframe.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+      iframe.allowFullscreen = true;
+      player.appendChild(iframe);
+      card.replaceWith(player);
+    });
+  });
+})();

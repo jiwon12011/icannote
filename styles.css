@@ -24,7 +24,7 @@
   --color-cream: #FEF7F0;
 
   /* 히어로 오렌지 말풍선 실루엣 마스크: 뾰족한 꼬리 대신 넓고 부드러운 둥근 물결(중앙 약간 우측이 가장 깊게) */
-  --bubble-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20100%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%200%20H100%20V80%20C88%2082%2080%2082%2072%2083%20C66%2084%2062%2089%2056%2089%20C51%2089%2048%2084%2042%2083%20C28%2081%2013%2081%200%2080%20Z%27%20fill%3D%27%23fff%27%2F%3E%3C%2Fsvg%3E");
+  --bubble-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20100%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%200%20H100%20V80%20C82%2085%2072%2085%2064%2085%20C60%2087%2058%2093%2052%2093%20C46%2093%2044%2086%2038%2085%20C24%2083%2012%2083%200%2081%20Z%27%20fill%3D%27%23fff%27%2F%3E%3C%2Fsvg%3E");
 
   /* 그림자 */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, .1);
@@ -254,7 +254,19 @@ ul {
 }
 
 .hero-headline .hl {
+  position: relative;
   color: var(--color-orange-deep);
+}
+
+/* "쉽게" 위에 붙는 강조 대시(만화풍). 단어에 앵커링되어 뷰포트와 무관하게 항상 정렬 */
+.hl-spark {
+  position: absolute;
+  top: -0.66em;
+  right: -0.78em;
+  width: clamp(28px, 3.4vw, 56px);
+  aspect-ratio: 69 / 63;
+  background: url('assets/hero/dashes.png') center / contain no-repeat;
+  pointer-events: none;
 }
 
 /* 장식용 큰 워드마크 (의미는 h1이 가짐 → 여기는 p) */
@@ -337,7 +349,6 @@ ul {
 
 /* 우측 그룹 */
 .obj-donut    { left: 73%; top: 33%; width: clamp(220px, 23vw, 370px);  --dur: 4.8s; --delay: -.3s;  z-index: 2; }
-.obj-dashes   { left: 60%; top: 33%; width: clamp(46px, 5vw, 90px);     animation: none; z-index: 3; }
 .obj-pencil   { left: 73%; top: 58%; width: clamp(86px, 9.4vw, 165px);  --dur: 4.4s; --delay: -.6s;  z-index: 3; }
 .obj-eraser   { left: 85%; top: 70%; width: clamp(74px, 7.8vw, 145px);  --dur: 3.9s; --delay: -1.8s; z-index: 3; }
 .obj-staryel  { left: 92%; top: 44%; width: clamp(36px, 4vw, 72px);     --dur: 3.1s; --delay: -2.3s; z-index: 3; }
@@ -346,8 +357,7 @@ ul {
 /* 초소형 장식은 레이어 승격 불필요 → 합성 메모리 절약 (P4) */
 .obj-dot1 img,
 .obj-dot2 img,
-.obj-dot3 img,
-.obj-dashes img {
+.obj-dot3 img {
   will-change: auto;
 }
 
@@ -365,7 +375,6 @@ ul {
 
   /* 작은 장식 일부 숨김 */
   .obj-sparkle,
-  .obj-dashes,
   .obj-starpur,
   .obj-staryel,
   .obj-dot1,
@@ -411,7 +420,8 @@ ul {
   }
 
   /* 떠다니는 오브젝트는 전부 숨김 → 중앙 텍스트만 깔끔히 */
-  .hero-objects {
+  .hero-objects,
+  .hl-spark {
     display: none;
   }
 }
@@ -1257,17 +1267,35 @@ ul {
   color: #fff;
   text-align: center;
 }
+/* 유튜브 자동 썸네일 (영상 ID로 로드) — 그라데이션 위를 덮음 */
+.uc-featured__img {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover;
+}
+/* 흰 텍스트 가독성용 스크림 (이미지 위, 오버레이 아래) */
+.uc-featured__thumb::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0) 38%, rgba(0,0,0,.46) 100%);
+}
 .uc-featured__label {
-  position: absolute; top: var(--space-5); left: var(--space-5);
+  position: absolute; z-index: 2; top: var(--space-5); left: var(--space-5);
   font-size: 13px; font-weight: 800; letter-spacing: .04em;
   padding: 6px 14px; border-radius: 999px;
   background: rgba(255, 255, 255, .22);
   border: 1px solid rgba(255, 255, 255, .4);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
 }
 .uc-featured__caption {
-  position: absolute; left: var(--space-8); right: var(--space-8); bottom: var(--space-6);
+  position: absolute; z-index: 2; left: var(--space-8); right: var(--space-8); bottom: var(--space-6);
   font-size: clamp(15px, 1.5vw, 19px); font-weight: 700; line-height: 1.5;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, .25);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .35);
+}
+.uc-featured .uc-play { position: relative; z-index: 2; }
+
+/* 클릭 시 인라인 재생 — 카드 자리에 16:9 iframe이 채워짐 */
+.uc-featured__thumb.is-playing::after { content: none; }
+.uc-featured__thumb.is-playing iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
 }
 
 /* 공통 재생 버튼 (featured + 비디오 카드) */
@@ -1311,83 +1339,6 @@ ul {
   width: 32px; height: 32px; border-radius: 50%;
   background: linear-gradient(135deg, var(--color-orange-main), var(--color-orange-deep));
   color: #fff; font-size: 14px; font-weight: 800;
-}
-
-/* -------------------------------------------------------------------------
-   UC 04. FLOW — 메인(세로 스택 카드)과 다른 "가로 4단계 타임라인"
-   크림 배경 위, 카드 없이 가로로 흐르고 가운데 연결선이 단계를 잇는다.
-   ------------------------------------------------------------------------- */
-.uc-flow2 {
-  background: linear-gradient(180deg, var(--color-cream) 0%, #FFF7EE 100%);
-  padding: var(--space-24) var(--container-pad);
-}
-.uc-flow2__head { max-width: 720px; margin: 0 auto var(--space-16); text-align: center; }
-.uc-flow2__head .series-badge { margin-bottom: var(--space-4); }
-.uc-flow2__title {
-  font-size: clamp(28px, 3.4vw, 44px); font-weight: 800; line-height: 1.32;
-  color: var(--color-text-dark);
-}
-.uc-flow2__title .hl { color: var(--color-orange-deep); }
-.uc-flow2__desc {
-  margin-top: var(--space-4);
-  font-size: 16px; line-height: 1.7; color: var(--color-text-secondary);
-}
-
-/* 가로 트랙 */
-.uc-flow2__track {
-  position: relative;
-  max-width: var(--container-max); margin-inline: auto;
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-6);
-}
-/* 단계를 잇는 가로 점선 — 미디어 타일 세로 중심을 관통 */
-.uc-flow2__track::before {
-  content: "";
-  position: absolute; z-index: 0;
-  top: calc(clamp(120px, 12vw, 168px) / 2);
-  left: 12.5%; right: 12.5%;
-  height: 0; border-top: 2px dashed rgba(255, 122, 61, .45);
-  transform: translateY(-1px);
-}
-.uc-flow2__step {
-  position: relative; z-index: 1;
-  display: flex; flex-direction: column; align-items: center;
-  text-align: center;
-}
-.uc-flow2__media {
-  position: relative;
-  display: grid; place-items: center;
-  width: clamp(120px, 12vw, 168px); aspect-ratio: 1;
-  border-radius: 50%;
-  background: #fff;
-  border: var(--border-card);
-  box-shadow: 0 16px 36px rgba(230, 74, 25, .12);
-}
-.uc-flow2__media picture { display: block; width: 78%; }
-.uc-flow2__media img { width: 100%; height: auto; object-fit: contain; }
-.uc-flow2__media--icon {
-  background: linear-gradient(160deg, #FF9D52 0%, var(--color-orange-main) 50%, var(--color-orange-deep) 100%);
-  border-color: transparent; color: #fff;
-  box-shadow: 0 16px 36px rgba(230, 74, 25, .28);
-}
-/* 번호 배지 — 타일 우상단 */
-.uc-flow2__num {
-  position: absolute; top: 4px; right: 4px;
-  display: grid; place-items: center;
-  width: 40px; height: 40px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-orange-main), var(--color-orange-deep));
-  color: #fff; font-size: 15px; font-weight: 800;
-  border: 3px solid var(--color-cream);
-  box-shadow: var(--shadow-button);
-}
-.uc-flow2__step-title {
-  margin-top: var(--space-6);
-  font-size: clamp(18px, 1.5vw, 21px); font-weight: 800; color: var(--color-text-dark);
-}
-.uc-flow2__step-desc {
-  margin-top: var(--space-3);
-  font-size: 15px; line-height: 1.7; color: var(--color-text-secondary);
-  max-width: 22ch;
 }
 
 /* -------------------------------------------------------------------------
@@ -1446,6 +1397,8 @@ ul {
   transition: transform .25s ease, box-shadow .25s ease;
 }
 .uc-video-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+/* 필터로 숨긴 카드 — .uc-video-card의 display:flex가 기본 [hidden]을 덮으므로 명시 */
+.uc-video-card[hidden] { display: none; }
 
 /* 썸네일 — 16/9 박스 확정(실에셋 교체 대비), 그라데이션 플레이스홀더 */
 .uc-video-card__thumb {
@@ -1456,10 +1409,26 @@ ul {
     radial-gradient(110% 110% at 25% 15%, #FFC18A 0%, rgba(255,193,138,0) 55%),
     linear-gradient(135deg, #FF9A5E 0%, var(--color-orange-deep) 100%);
 }
+/* 유튜브 자동 썸네일 (영상 ID로 로드) */
+.uc-video-card__img {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover;
+}
+.uc-video-card__thumb::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.28) 100%);
+}
 .uc-video-card__thumb .uc-play {
+  position: relative; z-index: 2;
   width: 54px; height: 54px;
 }
 .uc-video-card__thumb:hover .uc-play { transform: scale(1.08); }
+
+/* 클릭 시 인라인 재생 */
+.uc-video-card__thumb.is-playing::after { content: none; }
+.uc-video-card__thumb.is-playing iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+}
 
 .uc-video-card__body {
   padding: var(--space-5) var(--space-5) var(--space-6);
@@ -1508,10 +1477,6 @@ ul {
 
   .uc-cases__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
   .uc-videos__grid { grid-template-columns: repeat(2, 1fr); }
-
-  /* 플로우 타임라인: 2x2, 연결선은 가로 한 줄 대신 제거(2행이라 어색) */
-  .uc-flow2__track { grid-template-columns: repeat(2, 1fr); gap: var(--space-10) var(--space-6); }
-  .uc-flow2__track::before { display: none; }
 }
 
 @media (max-width: 809px) {
@@ -1537,16 +1502,6 @@ ul {
   .uc-videos__grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
   .uc-filter { gap: var(--space-2); }
   .uc-filter__btn { font-size: 13.5px; padding: 8px 15px; }
-
-  /* 플로우 타임라인: 1열 세로, 미디어 좌측·텍스트 우측의 가로 스텝으로 */
-  .uc-flow2 { padding: var(--space-20) var(--container-pad); }
-  .uc-flow2__track { grid-template-columns: 1fr; gap: var(--space-8); max-width: 460px; }
-  .uc-flow2__step {
-    flex-direction: row; align-items: center; gap: var(--space-5); text-align: left;
-  }
-  .uc-flow2__media { width: 96px; flex: none; }
-  .uc-flow2__step-title { margin-top: 0; }
-  .uc-flow2__step-desc { margin-top: var(--space-2); max-width: none; }
 
   /* 모바일: 말풍선 backdrop-filter 비용 제거(저사양 보호, nav와 동일 정책) */
   .uc-bubble {

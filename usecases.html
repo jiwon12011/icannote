@@ -131,7 +131,8 @@
     <section class="uc-featured" aria-labelledby="uc-featured-title">
       <div class="uc-featured__grid">
         <!-- 좌: 대표 영상 썸네일 (플레이스홀더 — 실영상 교체 대비 16/9 박스 확정) -->
-        <a class="uc-featured__thumb" href="#uc-videos" aria-label="대표 사용법 영상 — 2020년 화면 필기 및 녹화 프로그램 아이캔노트 사용법">
+        <a class="uc-featured__thumb" href="https://www.youtube.com/watch?v=0RvKxRt6rxs" target="_blank" rel="noopener" data-yt="0RvKxRt6rxs" aria-label="대표 사용법 영상 재생 — 2020년 화면 필기 및 녹화 프로그램 아이캔노트 사용법">
+          <img class="uc-featured__img" src="https://img.youtube.com/vi/0RvKxRt6rxs/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
           <span class="uc-featured__label">대표 사용법</span>
           <span class="uc-play" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
@@ -153,69 +154,6 @@
       </div>
     </section>
 
-    <!-- ===================== 04. FLOW (메인 .flow 재사용) ===================== -->
-    <section class="uc-flow2" aria-labelledby="uc-flow-title">
-      <div class="uc-flow2__head">
-        <span class="series-badge">FLOW</span>
-        <h2 id="uc-flow-title" class="uc-flow2__title">수업 자료가 <span class="hl">판서 노트</span>가 되는 과정</h2>
-        <p class="uc-flow2__desc">불러오기 → 판서 → 녹화·저장 → 공유. 네 단계로 수업의 흐름이 한 줄로 이어집니다.</p>
-      </div>
-
-      <ol class="uc-flow2__track">
-        <li class="uc-flow2__step">
-          <div class="uc-flow2__media">
-            <picture>
-              <source srcset="assets/flow/flow-01-import-materials.webp" type="image/webp" />
-              <img src="assets/flow/flow-01-import-materials.png" alt="" loading="lazy" decoding="async" width="1257" height="895" />
-            </picture>
-            <span class="uc-flow2__num">01</span>
-          </div>
-          <h3 class="uc-flow2__step-title">자료 불러오기</h3>
-          <p class="uc-flow2__step-desc">PDF, PPT, 이미지 자료를 아이캔노트에 불러와요.</p>
-        </li>
-
-        <li class="uc-flow2__step">
-          <div class="uc-flow2__media">
-            <picture>
-              <source srcset="assets/flow/flow-02-annotate-materials.webp" type="image/webp" />
-              <img src="assets/flow/flow-02-annotate-materials.png" alt="" loading="lazy" decoding="async" width="1716" height="959" />
-            </picture>
-            <span class="uc-flow2__num">02</span>
-          </div>
-          <h3 class="uc-flow2__step-title">바로 판서하기</h3>
-          <p class="uc-flow2__step-desc">펜, 형광펜, 도형, 포인터로 핵심을 설명해요.</p>
-        </li>
-
-        <li class="uc-flow2__step">
-          <div class="uc-flow2__media">
-            <picture>
-              <source srcset="assets/flow/flow-03-save-record-share.webp" type="image/webp" />
-              <img src="assets/flow/flow-03-save-record-share.png" alt="" loading="lazy" decoding="async" width="1454" height="1019" />
-            </picture>
-            <span class="uc-flow2__num">03</span>
-          </div>
-          <h3 class="uc-flow2__step-title">녹화하고 저장하기</h3>
-          <p class="uc-flow2__step-desc">수업 내용을 영상과 필기 자료로 남길 수 있어요.</p>
-        </li>
-
-        <li class="uc-flow2__step">
-          <div class="uc-flow2__media uc-flow2__media--icon">
-            <span class="uc-flow2__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="46" height="46" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="18" cy="5" r="3" />
-                <circle cx="6" cy="12" r="3" />
-                <circle cx="18" cy="19" r="3" />
-                <path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" />
-              </svg>
-            </span>
-            <span class="uc-flow2__num">04</span>
-          </div>
-          <h3 class="uc-flow2__step-title">다시 공유하기</h3>
-          <p class="uc-flow2__step-desc">복습이 필요한 학생에게 수업 자료를 전달해요.</p>
-        </li>
-      </ol>
-    </section>
-
     <!-- ===================== 05. EXAMPLE VIDEOS ===================== -->
     <section id="uc-videos" class="uc-videos" aria-labelledby="uc-videos-title">
       <div class="uc-videos__head">
@@ -227,154 +165,217 @@
       <div class="uc-filter" role="group" aria-label="영상 카테고리 필터">
         <button type="button" class="uc-filter__btn is-active" data-filter="all" aria-pressed="true">전체</button>
         <button type="button" class="uc-filter__btn" data-filter="math" aria-pressed="false">수학 수업</button>
-        <button type="button" class="uc-filter__btn" data-filter="online" aria-pressed="false">온라인 강의</button>
         <button type="button" class="uc-filter__btn" data-filter="quiz" aria-pressed="false">문제풀이</button>
         <button type="button" class="uc-filter__btn" data-filter="feature" aria-pressed="false">기능 설명</button>
         <button type="button" class="uc-filter__btn" data-filter="teacher" aria-pressed="false">선생님 활용 사례</button>
       </div>
 
       <ul class="uc-videos__grid" id="ucVideoGrid">
-        <li class="uc-video-card" data-category="math">
-          <a class="uc-video-card__thumb" href="#uc-videos" aria-label="영상 보기: Geometry chap6 InteriorAngle">
+        <li class="uc-video-card" data-category="feature">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=5hf2iF4sU9E" target="_blank" rel="noopener" data-yt="5hf2iF4sU9E" aria-label="영상 재생: 노트 설치와 기본 필기">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/5hf2iF4sU9E/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
             <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
           </a>
           <div class="uc-video-card__body">
-            <span class="uc-tag">기하</span>
-            <h3 class="uc-video-card__title">Geometry chap6 InteriorAngle</h3>
-            <p class="uc-video-card__desc">도형 내각을 판서로 단계별 설명</p>
-            <span class="uc-video-card__chan">ICANNOTE 활용 영상</span>
+            <span class="uc-tag">설명서 1-1</span>
+            <h3 class="uc-video-card__title">노트 설치와 기본 필기</h3>
+            <p class="uc-video-card__desc">아이캔노트 설치부터 기본 필기까지</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
           </div>
         </li>
 
         <li class="uc-video-card" data-category="feature">
-          <a class="uc-video-card__thumb" href="#uc-videos" aria-label="영상 보기: 아이캔노트를 사용하는 이유">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=CfThytvAA58" target="_blank" rel="noopener" data-yt="CfThytvAA58" aria-label="영상 재생: 노트 버전 확인하기">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/CfThytvAA58/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
             <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
           </a>
           <div class="uc-video-card__body">
-            <span class="uc-tag">기능 소개</span>
-            <h3 class="uc-video-card__title">아이캔노트를 사용하는 이유</h3>
-            <p class="uc-video-card__desc">핵심 기능을 한눈에 정리</p>
-            <span class="uc-video-card__chan">ICANNOTE 활용 영상</span>
+            <span class="uc-tag">설명서 1-2</span>
+            <h3 class="uc-video-card__title">노트 버전 확인하기</h3>
+            <p class="uc-video-card__desc">현재 노트 버전을 확인하는 방법</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
           </div>
         </li>
 
-        <li class="uc-video-card" data-category="math">
-          <a class="uc-video-card__thumb" href="#uc-videos" aria-label="영상 보기: 이차함수 x축 대칭 그래프">
+        <li class="uc-video-card" data-category="feature">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=CeiH5Nnpdn0" target="_blank" rel="noopener" data-yt="CeiH5Nnpdn0" aria-label="영상 재생: 메뉴 크기 조절">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/CeiH5Nnpdn0/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
             <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
           </a>
           <div class="uc-video-card__body">
-            <span class="uc-tag">함수</span>
-            <h3 class="uc-video-card__title">이차함수 x축 대칭 그래프</h3>
-            <p class="uc-video-card__desc">그래프를 판서로 그리며 설명</p>
-            <span class="uc-video-card__chan">ICANNOTE 활용 영상</span>
+            <span class="uc-tag">설명서 1-3</span>
+            <h3 class="uc-video-card__title">메뉴 크기 조절</h3>
+            <p class="uc-video-card__desc">메뉴 크기를 자유롭게 조절</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
           </div>
         </li>
 
-        <li class="uc-video-card" data-category="quiz">
-          <a class="uc-video-card__thumb" href="#uc-videos" aria-label="영상 보기: 2019년 7월 교육청 15·16·17번">
+        <li class="uc-video-card" data-category="feature">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=OTuyJtUL1bk" target="_blank" rel="noopener" data-yt="OTuyJtUL1bk" aria-label="영상 재생: 툴바 설정">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/OTuyJtUL1bk/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
             <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
           </a>
           <div class="uc-video-card__body">
-            <span class="uc-tag">기출 풀이</span>
-            <h3 class="uc-video-card__title">2019년 7월 교육청 15·16·17번</h3>
-            <p class="uc-video-card__desc">집합·경우의수·수열 단계 풀이</p>
-            <span class="uc-video-card__chan">ICANNOTE 활용 영상</span>
+            <span class="uc-tag">설명서 1-4</span>
+            <h3 class="uc-video-card__title">툴바 설정</h3>
+            <p class="uc-video-card__desc">자주 쓰는 도구로 툴바 구성</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
           </div>
         </li>
 
-        <li class="uc-video-card" data-category="online">
-          <a class="uc-video-card__thumb" href="#uc-videos" aria-label="영상 보기: grade7 Endyear Test2 Area Circle">
+        <li class="uc-video-card" data-category="feature">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=Bv7T3lmTDE0" target="_blank" rel="noopener" data-yt="Bv7T3lmTDE0" aria-label="영상 재생: 단축키">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/Bv7T3lmTDE0/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
             <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
           </a>
           <div class="uc-video-card__body">
-            <span class="uc-tag">온라인 강의</span>
-            <h3 class="uc-video-card__title">grade7 Endyear Test2 Area Circle</h3>
-            <p class="uc-video-card__desc">원의 넓이 풀이 녹화 수업</p>
-            <span class="uc-video-card__chan">ICANNOTE 활용 영상</span>
+            <span class="uc-tag">설명서 1-5</span>
+            <h3 class="uc-video-card__title">단축키</h3>
+            <p class="uc-video-card__desc">수업이 빨라지는 단축키 모음</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
           </div>
         </li>
 
-        <li class="uc-video-card" data-category="quiz">
-          <a class="uc-video-card__thumb" href="#uc-videos" aria-label="영상 보기: CEMC 2018 G9 22 Graph Theory">
+        <li class="uc-video-card" data-category="feature">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=kOP6pKxEeWk" target="_blank" rel="noopener" data-yt="kOP6pKxEeWk" aria-label="영상 재생: 페이지 추가·삭제·복구">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/kOP6pKxEeWk/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
             <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
           </a>
           <div class="uc-video-card__body">
-            <span class="uc-tag">경시 풀이</span>
-            <h3 class="uc-video-card__title">CEMC 2018 G9 22 Graph Theory</h3>
-            <p class="uc-video-card__desc">그래프 이론 노드·간선 설명</p>
-            <span class="uc-video-card__chan">ICANNOTE 활용 영상</span>
+            <span class="uc-tag">설명서 2-1</span>
+            <h3 class="uc-video-card__title">페이지 추가·삭제·복구</h3>
+            <p class="uc-video-card__desc">페이지 생성·삭제·복구 다루기</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
           </div>
         </li>
 
-        <li class="uc-video-card" data-category="quiz">
-          <a class="uc-video-card__thumb" href="#uc-videos" aria-label="영상 보기: 일 단위 변환·타일·직사각형">
+        <li class="uc-video-card" data-category="feature">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=TcF5xgMBzOA" target="_blank" rel="noopener" data-yt="TcF5xgMBzOA" aria-label="영상 재생: 페이지 크기·확대축소">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/TcF5xgMBzOA/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
             <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
           </a>
           <div class="uc-video-card__body">
-            <span class="uc-tag">문제풀이</span>
-            <h3 class="uc-video-card__title">일 단위 변환·타일·직사각형</h3>
-            <p class="uc-video-card__desc">단위 변환 과정을 판서로</p>
-            <span class="uc-video-card__chan">ICANNOTE 활용 영상</span>
+            <span class="uc-tag">설명서 2-2</span>
+            <h3 class="uc-video-card__title">페이지 크기·확대축소</h3>
+            <p class="uc-video-card__desc">페이지 크기 변경과 확대·축소</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
           </div>
         </li>
 
-        <li class="uc-video-card" data-category="math">
-          <a class="uc-video-card__thumb" href="#uc-videos" aria-label="영상 보기: 중2 함수의 활용 - 움직이는 삼각형">
+        <li class="uc-video-card" data-category="feature">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=uwQm9PyX9Lc" target="_blank" rel="noopener" data-yt="uwQm9PyX9Lc" aria-label="영상 재생: 페이지 배경·마우스 커서">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/uwQm9PyX9Lc/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
             <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
           </a>
           <div class="uc-video-card__body">
-            <span class="uc-tag">함수</span>
-            <h3 class="uc-video-card__title">중2 함수의 활용 - 움직이는 삼각형</h3>
-            <p class="uc-video-card__desc">사각형 안 삼각형 넓이 변화</p>
-            <span class="uc-video-card__chan">ICANNOTE 활용 영상</span>
+            <span class="uc-tag">설명서 2-3</span>
+            <h3 class="uc-video-card__title">페이지 배경·마우스 커서</h3>
+            <p class="uc-video-card__desc">배경과 마우스 커서 설정 바꾸기</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
           </div>
         </li>
 
-        <li class="uc-video-card" data-category="quiz">
-          <a class="uc-video-card__thumb" href="#uc-videos" aria-label="영상 보기: CEMC 2018 G9 23 Circle, triangle">
+        <li class="uc-video-card" data-category="feature">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=hRG7v-EnsKg" target="_blank" rel="noopener" data-yt="hRG7v-EnsKg" aria-label="영상 재생: 페이지 배경 반전">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/hRG7v-EnsKg/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
             <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
           </a>
           <div class="uc-video-card__body">
-            <span class="uc-tag">경시 풀이</span>
-            <h3 class="uc-video-card__title">CEMC 2018 G9 23 Circle, triangle</h3>
-            <p class="uc-video-card__desc">원과 삼각형 음영 넓이</p>
-            <span class="uc-video-card__chan">ICANNOTE 활용 영상</span>
+            <span class="uc-tag">설명서 2-3</span>
+            <h3 class="uc-video-card__title">페이지 배경 반전</h3>
+            <p class="uc-video-card__desc">배경 반전으로 화면 전환하기</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
           </div>
         </li>
 
-        <li class="uc-video-card" data-category="online">
-          <a class="uc-video-card__thumb" href="#uc-videos" aria-label="영상 보기: Linear Equation, coordinate Plane">
+        <li class="uc-video-card" data-category="feature">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=L4enxhcvQoY" target="_blank" rel="noopener" data-yt="L4enxhcvQoY" aria-label="영상 재생: 이미지 가져오기·캡처">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/L4enxhcvQoY/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
             <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
           </a>
           <div class="uc-video-card__body">
-            <span class="uc-tag">온라인 강의</span>
-            <h3 class="uc-video-card__title">Linear Equation, coordinate Plane</h3>
-            <p class="uc-video-card__desc">일차방정식 좌표평면 설명</p>
-            <span class="uc-video-card__chan">ICANNOTE 활용 영상</span>
+            <span class="uc-tag">설명서 4</span>
+            <h3 class="uc-video-card__title">이미지 가져오기·캡처</h3>
+            <p class="uc-video-card__desc">이미지 불러오기와 화면 캡처</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
+          </div>
+        </li>
+
+        <li class="uc-video-card" data-category="feature">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=6ticXkZ29IQ" target="_blank" rel="noopener" data-yt="6ticXkZ29IQ" aria-label="영상 재생: 영상 녹화 기능">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/6ticXkZ29IQ/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
+            <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
+          </a>
+          <div class="uc-video-card__body">
+            <span class="uc-tag">설명서 5</span>
+            <h3 class="uc-video-card__title">영상 녹화 기능</h3>
+            <p class="uc-video-card__desc">수업 화면을 영상으로 녹화</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
           </div>
         </li>
 
         <li class="uc-video-card" data-category="teacher">
-          <a class="uc-video-card__thumb" href="#uc-videos" aria-label="영상 보기: Geometry practice">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=fKqNchq_eTY" target="_blank" rel="noopener" data-yt="fKqNchq_eTY" aria-label="영상 재생: 카톡 질문 답변 만들기">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/fKqNchq_eTY/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
             <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
           </a>
           <div class="uc-video-card__body">
-            <span class="uc-tag">활용 사례</span>
-            <h3 class="uc-video-card__title">Geometry practice</h3>
-            <p class="uc-video-card__desc">기하 연습 문제 판서 예시</p>
-            <span class="uc-video-card__chan">ICANNOTE 활용 영상</span>
+            <span class="uc-tag">활용 팁</span>
+            <h3 class="uc-video-card__title">카톡 질문 답변 만들기</h3>
+            <p class="uc-video-card__desc">카톡 질문을 모아 답변 자료로</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
           </div>
         </li>
 
         <li class="uc-video-card" data-category="math">
-          <a class="uc-video-card__thumb" href="#uc-videos" aria-label="영상 보기: 수1 지수·로그함수 그래프">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=xnf-GPy4DPE" target="_blank" rel="noopener" data-yt="xnf-GPy4DPE" aria-label="영상 재생: 기하 - 내각과 외각">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/xnf-GPy4DPE/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
             <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
           </a>
           <div class="uc-video-card__body">
-            <span class="uc-tag">함수</span>
-            <h3 class="uc-video-card__title">수1 지수·로그함수 그래프</h3>
-            <p class="uc-video-card__desc">지수·로그 그래프 판서 설명</p>
-            <span class="uc-video-card__chan">ICANNOTE 활용 영상</span>
+            <span class="uc-tag">수학 수업</span>
+            <h3 class="uc-video-card__title">기하 - 내각과 외각</h3>
+            <p class="uc-video-card__desc">도형의 내각·외각을 판서로 설명</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
+          </div>
+        </li>
+
+        <li class="uc-video-card" data-category="teacher">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=e0KUpHIs0dU" target="_blank" rel="noopener" data-yt="e0KUpHIs0dU" aria-label="영상 재생: 아이캔노트를 쓰는 이유">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/e0KUpHIs0dU/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
+            <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
+          </a>
+          <div class="uc-video-card__body">
+            <span class="uc-tag">선생님 활용</span>
+            <h3 class="uc-video-card__title">아이캔노트를 쓰는 이유</h3>
+            <p class="uc-video-card__desc">수업에 노트북·아이캔노트를 쓰는 이유</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
+          </div>
+        </li>
+
+        <li class="uc-video-card" data-category="quiz">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=W6pkEebfAfo" target="_blank" rel="noopener" data-yt="W6pkEebfAfo" aria-label="영상 재생: CEMC 2018 G9 그래프 이론">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/W6pkEebfAfo/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
+            <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
+          </a>
+          <div class="uc-video-card__body">
+            <span class="uc-tag">문제풀이</span>
+            <h3 class="uc-video-card__title">CEMC 2018 G9 그래프 이론</h3>
+            <p class="uc-video-card__desc">그래프 이론 노드·간선 풀이</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
+          </div>
+        </li>
+
+        <li class="uc-video-card" data-category="math">
+          <a class="uc-video-card__thumb" href="https://www.youtube.com/watch?v=Kc_q9S9Sb5E" target="_blank" rel="noopener" data-yt="Kc_q9S9Sb5E" aria-label="영상 재생: 일차방정식과 좌표평면">
+            <img class="uc-video-card__img" src="https://img.youtube.com/vi/Kc_q9S9Sb5E/maxresdefault.jpg" alt="" loading="lazy" decoding="async" />
+            <span class="uc-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
+          </a>
+          <div class="uc-video-card__body">
+            <span class="uc-tag">수학 수업</span>
+            <h3 class="uc-video-card__title">일차방정식과 좌표평면</h3>
+            <p class="uc-video-card__desc">함수·좌표평면 개념을 판서로</p>
+            <span class="uc-video-card__chan">BMATH · ICANNOTE 활용 영상</span>
           </div>
         </li>
       </ul>
