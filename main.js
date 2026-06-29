@@ -1,6 +1,23 @@
 // motion-engineer가 GSAP 모션 추가 예정
 
 /* =========================================================
+   히어로 오브젝트 — 팝 완료 후 floatY 이어받기
+   ========================================================= */
+(function initHeroPop() {
+  const targets = ['.obj-chat', '.obj-pennib', '.obj-notebook', '.obj-dashes', '.obj-pencil', '.obj-eraser'];
+  targets.forEach((sel) => {
+    const el = document.querySelector(sel);
+    if (!el) return;
+    el.addEventListener('animationend', () => {
+      el.style.opacity = '1';
+      el.style.animation = '';
+      // floatY는 CSS의 .hero-obj animation이 담당하므로 클래스로 재활성
+      el.classList.add('hero-pop-done');
+    }, { once: true });
+  });
+})();
+
+/* =========================================================
    stats 섹션 — 숫자 카운트업 애니메이션
    ========================================================= */
 (function initStatCounter() {
@@ -39,19 +56,6 @@
 /* =========================================================
    why 섹션 — 꼬불꼬불 선 스크롤 진입 시 드로우 애니메이션
    ========================================================= */
-(function initFlowStar() {
-  const star = document.querySelector('.flow-star');
-  if (!star) return;
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        star.classList.add('is-visible');
-        observer.disconnect();
-      }
-    });
-  }, { threshold: 0.5 });
-  observer.observe(star);
-})();
 
 (function initSquiggle() {
   const squiggle = document.querySelector('.why-squiggle');
@@ -68,6 +72,113 @@
     { threshold: 0.5 }
   );
   observer.observe(squiggle);
+})();
+
+/* =========================================================
+   공통 — .reveal 요소 스크롤 진입 시 페이드업
+   ========================================================= */
+(function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach((el) => observer.observe(el));
+})();
+
+/* =========================================================
+   시리즈 — 배지·타이틀 → 카드 1→2→3→4 순차 등장
+   ========================================================= */
+(function initSeriesReveal() {
+  const badge  = document.querySelector('.series-badge');
+  const title  = document.querySelector('.series-title');
+  const cards  = document.querySelectorAll('.series-card');
+  const trigger = badge || title;
+  if (!trigger) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      observer.disconnect();
+      badge && badge.classList.add('is-visible');
+      setTimeout(() => title && title.classList.add('is-visible'), 200);
+      cards.forEach((card, i) => {
+        setTimeout(() => card.classList.add('is-visible'), 400 + i * 180);
+      });
+    });
+  }, { threshold: 0.2 });
+  observer.observe(trigger);
+})();
+
+/* =========================================================
+   시리즈 카드 — 클릭 시 활성 카드 전환
+   ========================================================= */
+(function initSeriesCards() {
+  const cards = document.querySelectorAll('.series-card');
+  if (!cards.length) return;
+  cards.forEach((card) => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      cards.forEach((c) => c.classList.remove('series-card--featured'));
+      card.classList.add('series-card--featured');
+    });
+  });
+})();
+
+/* =========================================================
+   flow 스텝 — step1 → 선 → step2 → 선 → step3 → 화살표 → 텍스트
+   ========================================================= */
+(function initFlowSteps() {
+  const steps = document.querySelectorAll('.flow-step');
+  const lines = document.querySelectorAll('.flow-step-line');
+  const arrows = document.querySelector('.flow-arrows');
+  const outro = document.querySelector('.flow-outro');
+  const trigger = document.querySelector('.flow-card');
+  if (!trigger || !steps.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      observer.disconnect();
+      const T = 550; // step 등장 시간
+      const L = 500; // 선 그리는 시간
+
+      steps[0] && steps[0].classList.add('is-visible');                          // step1
+      setTimeout(() => lines[0] && lines[0].classList.add('is-visible'), T);    // 선1
+      setTimeout(() => steps[1] && steps[1].classList.add('is-visible'), T+L);  // step2
+      setTimeout(() => lines[1] && lines[1].classList.add('is-visible'), T*2+L);// 선2
+      setTimeout(() => steps[2] && steps[2].classList.add('is-visible'), T*2+L*2); // step3
+      setTimeout(() => arrows && arrows.classList.add('is-visible'), T*3+L*2);  // 화살표
+      setTimeout(() => outro  && outro.classList.add('is-visible'),  T*3+L*2+400); // 텍스트
+    });
+  }, { threshold: 0.2 });
+  observer.observe(trigger);
+})();
+
+/* =========================================================
+   flow 섹션 — 말풍선 → 언더라인 → 별 순차 등장
+   ========================================================= */
+(function initFlowSequence() {
+  const bubbleL = document.querySelector('.flow-bubble--l');
+  const bubbleR = document.querySelector('.flow-bubble--r');
+  const hlWrap  = document.querySelector('.flow-hl-wrap');
+  const trigger = bubbleL && (bubbleL.closest('.flow-head') || bubbleL);
+  if (!trigger) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      observer.disconnect();
+      bubbleL && bubbleL.classList.add('is-visible');
+      setTimeout(() => bubbleR && bubbleR.classList.add('is-visible'), 400);
+      setTimeout(() => hlWrap  && hlWrap.classList.add('is-visible'), 1300);
+    });
+  }, { threshold: 0.3 });
+  observer.observe(trigger);
 })();
 
 /* =========================================================
@@ -100,7 +211,8 @@
     });
     const btn = items[idx];
     // src 재할당으로 GIF를 처음부터 재생
-    gif.src = btn.dataset.gif;
+    gif.style.opacity = '0';
+    setTimeout(() => { gif.src = btn.dataset.gif; gif.style.opacity = '1'; }, 200);
     gif.alt = (btn.dataset.title || '도구') + ' 데모';
     if (caption && descriptions[idx]) caption.innerHTML = descriptions[idx];
   }

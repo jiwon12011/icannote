@@ -43,7 +43,7 @@
         <div class="hero-obj obj-notebook"><picture><img src="assets/hero/notebook 3d.png" width="388" height="382" alt="" fetchpriority="low" /></picture></div>
         <div class="hero-obj obj-starpur"><picture><img src="assets/hero/purple star.png" width="56" height="56" alt="" fetchpriority="low" /></picture></div>
         <div class="hero-obj obj-sparkle"><picture><img src="assets/hero/yellow star.png" width="56" height="58" alt="" fetchpriority="low" /></picture></div>
-        <div class="hero-obj obj-donut"><picture><img src="assets/hero/donut 3d.png" width="485" height="411" alt="" fetchpriority="low" /></picture></div>
+        <div class="hero-obj obj-dashes"><svg class="dashes-svg" viewBox="0 0 69 63" width="69" height="63" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line class="dash dash-1" x1="13" y1="33" x2="17" y2="8" stroke="#3495F9" stroke-width="7" stroke-linecap="round"/><line class="dash dash-2" x1="10" y1="48" x2="36" y2="22" stroke="#3495F9" stroke-width="7" stroke-linecap="round"/><line class="dash dash-3" x1="44" y1="56" x2="66" y2="48" stroke="#3495F9" stroke-width="7" stroke-linecap="round"/></svg></div>
         <div class="hero-obj obj-pencil"><picture><img src="assets/hero/pencil 3d.png" width="135" height="178" alt="" fetchpriority="low" /></picture></div>
         <div class="hero-obj obj-eraser"><picture><img src="assets/hero/eraser 3d.png" width="106" height="117" alt="" fetchpriority="low" /></picture></div>
         <div class="hero-obj obj-staryel"><picture><img src="assets/hero/yellow star.png" width="56" height="58" alt="" fetchpriority="low" /></picture></div>
@@ -67,17 +67,16 @@
     <section id="why" class="why" aria-labelledby="why-title">
       <div class="why-grid">
         <!-- 좌측 인트로 -->
-        <div class="why-intro">
+        <div class="why-intro reveal">
           <p class="why-label">WHY ICANNOTE</p>
-          <h2 id="why-title" class="why-heading">수업 자료 위에 바로 쓰고<br />저장·공유까지 이어지는<br /><span class="hl why-hl-wrap">핵심 기능들<svg class="why-squiggle" viewBox="0 0 180 12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M0 6 C15 1, 30 11, 45 6 S75 1, 90 6 S120 11, 135 6 S165 1, 180 6" fill="none" stroke="#E64A19" stroke-width="3" stroke-linecap="round"/></svg></span></h2>
+          <h2 id="why-title" class="why-heading">수업 자료 위에 바로 쓰고<br />저장·공유까지 이어지는<br /><span class="hl why-hl-wrap">핵심 기능들<svg class="why-squiggle" viewBox="0 0 180 12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M0 6 C15 1, 30 11, 45 6 S75 1, 90 6 S120 11, 135 6 S165 1, 180 6" fill="none" stroke="#1A6FFF" stroke-width="3" stroke-linecap="round"/></svg></span></h2>
           <p class="why-desc">PDF, PPT, 이미지 등 익숙한 수업 자료 위에<br />바로 판서하고, 설명하고, 저장·공유까지 이어지는<br />아이캔노트의 강력한 기능을 경험해 보세요.</p>
         </div>
 
         <!-- 가운데 큰 카드 -->
-        <article class="why-card why-card--main">
+        <article class="why-card why-card--main reveal" style="transition-delay:.05s">
           <picture class="why-card__bg">
-            <source srcset="assets/why-feature/why-main-direct-annotation.webp" type="image/webp" />
-            <img src="assets/why-feature/why-main-direct-annotation.png" alt="" loading="lazy" decoding="async" />
+            <img src="assets/why-feature/why-main-blue.png" alt="" loading="lazy" decoding="async" />
           </picture>
           <div class="why-card__overlay">
             <h3>자료 위 바로 판서</h3>
@@ -86,7 +85,7 @@
         </article>
 
         <!-- 우상단 -->
-        <article class="why-card why-card--tools">
+        <article class="why-card why-card--tools reveal" style="transition-delay:.1s">
           <div class="why-card__text">
             <h3>18가지 수업 도구</h3>
             <p>펜, 형광펜, 도형, 그래프, 지우개, 스티커까지<br />수업에 맞게 자유롭게 사용해요.</p>
@@ -98,7 +97,7 @@
         </article>
 
         <!-- 우중간 -->
-        <article class="why-card why-card--files">
+        <article class="why-card why-card--files reveal" style="transition-delay:.15s">
           <div class="why-card__text">
             <h3>다양한 파일 지원</h3>
             <p>PDF, HWP, PPT, DOC, 이미지 등 여러 형식의<br />수업 자료를 한 화면에서 활용해요.</p>
@@ -110,7 +109,7 @@
         </article>
 
         <!-- 하단 좌 -->
-        <article class="why-card why-card--board">
+        <article class="why-card why-card--board reveal" style="transition-delay:.2s">
           <div class="why-card__text">
             <h3>화이트보드 기능</h3>
             <p>빈 화면에 자유롭게 쓰고 그리며<br />칠판처럼 수업을 진행할 수 있어요.</p>
@@ -122,7 +121,7 @@
         </article>
 
         <!-- 하단 가운데 -->
-        <article class="why-card why-card--save">
+        <article class="why-card why-card--save reveal" style="transition-delay:.25s">
           <div class="why-card__text">
             <h3>저장 &amp; 공유</h3>
             <p>작성한 필기를 저장하고<br />다른 기기에서도 다시 불러와<br />이어서 사용할 수 있어요.</p>
@@ -134,7 +133,7 @@
         </article>
 
         <!-- 하단 우 -->
-        <article class="why-card why-card--record">
+        <article class="why-card why-card--record reveal" style="transition-delay:.3s">
           <div class="why-card__text">
             <h3>녹화 &amp; 복습 지원</h3>
             <p>수업 화면과 음성을 함께 기록해<br />강의 녹화와 복습 자료로 활용할 수 있어요.</p>
@@ -148,13 +147,13 @@
     </section>
 
     <section id="tools" class="tools" aria-labelledby="tools-title">
-      <div class="tools-head">
+      <div class="tools-head reveal">
         <p class="tools-label">직관적인 도구, 완벽한 수업</p>
         <h2 id="tools-title" class="tools-heading">필요한 도구를 모두 담다</h2>
         <p class="tools-desc">아이캔노트는 판서, 도형, 그래프, 텍스트 입력까지 수업에 필요한 기능을 한곳에 담아<br />설명 흐름을 끊지 않고 자연스럽게 수업을 이어갈 수 있도록 돕습니다.</p>
       </div>
 
-      <div class="tools-inner">
+      <div class="tools-inner reveal" style="transition-delay:.1s">
         <ul class="tools-list" role="tablist" aria-label="아이캔노트 도구 목록">
             <li role="presentation">
               <button type="button" class="tool-item is-active" role="tab" aria-selected="true" data-gif="assets/tool-gifs/tool-01-pen-highlighter.gif" data-title="펜 & 형광펜">
@@ -250,7 +249,7 @@
       <div class="flow-head">
         <span class="flow-bubble flow-bubble--l">자료 위에 바로 쓸 수 있나요?</span>
         <span class="flow-bubble flow-bubble--r">수업이 끝난 뒤에도 공유할 수 있나요?</span>
-        <h2 id="flow-title" class="flow-title">판서부터 녹화·공유까지<br /><span class="hl">수업의 흐름을 한 번에<svg class="flow-star" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20,2 L34.6,30.6 L5.4,9.4 L34.6,9.4 L5.4,30.6 Z" fill="none" stroke="#E64A19" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/></svg></span></h2>
+        <h2 id="flow-title" class="flow-title">판서부터 녹화·공유까지<br /><span class="flow-hl-wrap"><span class="hl">수업의 흐름을 한 번에<svg class="flow-star" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20,2 L34.6,30.6 L5.4,9.4 L34.6,9.4 L5.4,30.6 Z" fill="none" stroke="#E64A19" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/></svg></span><svg class="flow-underline" viewBox="0 0 300 10" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="0" y1="5" x2="300" y2="5" stroke="#E64A19" stroke-width="3" stroke-linecap="round"/></svg></span></h2>
         <p class="flow-desc">아이캔노트는 수업 자료 위 판서부터 저장·녹화·공유까지<br />자연스럽게 이어지는 디지털 판서 프로그램입니다.</p>
       </div>
 
@@ -270,6 +269,7 @@
             </picture>
           </li>
 
+          <div class="flow-step-line" aria-hidden="true"><div class="flow-step-line__inner"></div></div>
           <li class="flow-step">
             <div class="flow-step__text">
               <span class="flow-step__num">02</span>
@@ -282,6 +282,7 @@
             </picture>
           </li>
 
+          <div class="flow-step-line" aria-hidden="true"><div class="flow-step-line__inner"></div></div>
           <li class="flow-step">
             <div class="flow-step__text">
               <span class="flow-step__num">03</span>
@@ -296,36 +297,41 @@
         </ol>
       </div>
 
+      <div class="flow-arrows" aria-hidden="true">
+        <svg class="flow-arrow" viewBox="0 0 24 14" xmlns="http://www.w3.org/2000/svg"><polyline points="2,2 12,12 22,2" fill="none" stroke="#E64A19" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="flow-arrow" viewBox="0 0 24 14" xmlns="http://www.w3.org/2000/svg"><polyline points="2,2 12,12 22,2" fill="none" stroke="#E64A19" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="flow-arrow" viewBox="0 0 24 14" xmlns="http://www.w3.org/2000/svg"><polyline points="2,2 12,12 22,2" fill="none" stroke="#E64A19" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
       <p class="flow-outro">설명하는 순간은 <span class="hl">더 선명하게</span>, 남기는 과정은 <span class="hl">더 간편하게</span>.</p>
     </section>
 
     <section id="series" class="series" aria-labelledby="series-title">
-      <span class="series-badge">아이캔노트 시리즈</span>
-      <h2 id="series-title" class="series-title">다양한 선생님들의 수업을 위한 선택</h2>
+      <span class="series-badge reveal">아이캔노트 시리즈</span>
+      <h2 id="series-title" class="series-title reveal">다양한 선생님들의 수업을 위한 선택</h2>
 
       <div class="series-grid">
-        <article class="series-card series-card--featured">
+        <article class="series-card series-card--featured reveal">
           <span class="series-card__icon"><picture><source srcset="assets/logos/logo-01-note-pencil.webp" type="image/webp" /><img src="assets/logos/logo-01-note-pencil.png" alt="" loading="lazy" width="120" height="120" /></picture></span>
           <h3 class="series-card__name">아이캔노트</h3>
           <p class="series-card__desc">수업 자료를 불러와<br />바로 판서하고 저장하는<br />디지털 판서 프로그램입니다.</p>
           <a class="series-card__btn" href="#download">자세히 보기 <span aria-hidden="true">→</span></a>
         </article>
 
-        <article class="series-card">
+        <article class="series-card reveal">
           <span class="series-card__icon"><picture><source srcset="assets/logos/logo-02-screen-pencil.webp" type="image/webp" /><img src="assets/logos/logo-02-screen-pencil.png" alt="" loading="lazy" width="120" height="120" /></picture></span>
           <h3 class="series-card__name">아이캔스크린</h3>
           <p class="series-card__desc">컴퓨터 화면 위에 필기하며<br />영상, 문서, 웹페이지를 설명하는<br />화면 판서 도구입니다.</p>
           <a class="series-card__btn" href="#download">자세히 보기 <span aria-hidden="true">→</span></a>
         </article>
 
-        <article class="series-card">
+        <article class="series-card reveal">
           <span class="series-card__icon"><picture><source srcset="assets/logos/logo-03-rainbow-play.webp" type="image/webp" /><img src="assets/logos/logo-03-rainbow-play.png" alt="" loading="lazy" width="120" height="120" /></picture></span>
           <h3 class="series-card__name">아이캔VOD</h3>
           <p class="series-card__desc">녹화한 강의 영상을 업로드하고<br />수강 영상과 시청자를 관리하는<br />강의 VOD 서비스입니다.</p>
           <a class="series-card__btn" href="#download">자세히 보기 <span aria-hidden="true">→</span></a>
         </article>
 
-        <article class="series-card">
+        <article class="series-card reveal">
           <span class="series-card__icon"><picture><source srcset="assets/logos/logo-04-round-symbol.webp" type="image/webp" /><img src="assets/logos/logo-04-round-symbol.png" alt="" loading="lazy" width="120" height="120" /></picture></span>
           <h3 class="series-card__name">아이캔줌잇</h3>
           <p class="series-card__desc">화면을 확대하고 표시하며<br />필요한 부분을 강조해 설명하는<br />화면 강조 도구입니다.</p>
@@ -338,7 +344,10 @@
           <h2 class="cta__title">지금 바로 아이캔노트를 시작해 보세요!</h2>
           <p class="cta__desc">더 선명한 수업, 더 쉬운 이해가 시작됩니다.</p>
           <div class="cta__actions">
-            <a class="cta__btn" href="#download"><span aria-hidden="true">↓</span> 무료 다운로드</a>
+            <a class="cta__btn" href="#download">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 2v10M5 8l4 4 4-4M3 15h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              무료 다운로드
+            </a>
             <a class="cta__link" href="usecases.html">사용 예시 보기 <span aria-hidden="true">→</span></a>
           </div>
         </div>
