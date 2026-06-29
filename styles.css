@@ -218,14 +218,7 @@ ul {
   pointer-events: none;
 
   /* WebP 우선, PNG 폴백. preload href(.webp)와 일치해야 캐시 재사용 */
-  background-image: -webkit-image-set(
-    url('assets/hero/hero-demo-workspace-blue.webp') type('image/webp'),
-    url('assets/hero/hero-demo-workspace-blue.png') type('image/png')
-  );
-  background-image: image-set(
-    url('assets/hero/hero-demo-workspace-blue.webp') type('image/webp'),
-    url('assets/hero/hero-demo-workspace-blue.png') type('image/png')
-  );
+  background-image: url('assets/hero/hero-bg-blue.png');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
