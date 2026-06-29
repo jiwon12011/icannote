@@ -830,7 +830,7 @@ ul {
 .flow {
   position: relative;
   background-color: var(--color-cream);
-  background-image: linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.08)), url('assets/section flow-bg-blue.jpg');
+  background-image: url('assets/section flow-bg-blue.jpg');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -1003,7 +1003,7 @@ ul {
    스탯
    ========================================================= */
 .stats {
-  background: #F3F4F6;
+  background: #DFF0FB;
   padding: var(--space-20) var(--container-pad);
 }
 .stats-grid {
@@ -1024,10 +1024,10 @@ ul {
 .stat-card__icon {
   width: 104px; height: 104px;
   border-radius: 26px;
-  background: #E5E7EB;
+  background: #DADEЕ4;
   display: grid; place-items: center;
   margin-bottom: var(--space-5);
-  box-shadow: 0 14px 30px rgba(31, 45, 65, .12);
+  box-shadow: none;
 }
 .stat-card__icon img {
   width: 68px; height: 68px; object-fit: contain;
@@ -1384,11 +1384,11 @@ ul {
   background: var(--color-orange-main);
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .82);
 }
-.uc-bubble--1 { top: -2%;  left: -4%;  --dur: 4.2s; --delay: -.3s; }
+.uc-bubble--1 { top: 10%;  left: 5%;  --dur: 4.2s; --delay: -.3s; }
 .uc-bubble--1::after { bottom: -5px; left: 22px; }
 .uc-bubble--2 { top: 26%;  right: -7%; --dur: 3.6s; --delay: -1.1s; }
 .uc-bubble--2::after { bottom: -5px; left: 22px; }
-.uc-bubble--3 { bottom: 20%; left: -8%; --dur: 4.6s; --delay: -.7s; }
+.uc-bubble--3 { bottom: 12%; left: 5%; --dur: 4.6s; --delay: -.7s; }
 .uc-bubble--3::after { top: -5px; left: 22px; }
 .uc-bubble--4 { bottom: -3%; right: 4%; --dur: 3.9s; --delay: -1.6s; }
 .uc-bubble--4::after { top: -5px; right: 22px; }
@@ -1542,11 +1542,11 @@ ul {
 }
 .uc-featured__lead {
   font-size: 15px; line-height: 1.75; color: var(--color-text-secondary);
-  margin-bottom: var(--space-7);
+  margin-bottom: var(--space-10);
 }
 .uc-featured__steps { display: flex; flex-direction: column; gap: var(--space-4); }
 .uc-featured__steps li {
-  display: flex; align-items: center; gap: var(--space-4);
+  display: flex; align-items: flex-start; gap: var(--space-4);
   font-size: 16px; font-weight: 600; color: var(--color-text-dark);
 }
 .uc-featured__num {
@@ -1654,8 +1654,8 @@ ul {
 .uc-tag {
   align-self: flex-start;
   font-size: 12px; font-weight: 800; letter-spacing: .02em;
-  color: var(--color-orange-deep);
-  background: rgba(255, 122, 61, .12);
+  color: #1A6FFF;
+  background: rgba(26, 111, 255, .10);
   padding: 4px 12px; border-radius: 999px;
   margin-bottom: var(--space-2);
 }
