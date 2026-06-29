@@ -516,7 +516,7 @@ ul {
     "intro main tools"
     "intro main files"
     "board save  record";
-  grid-template-rows: repeat(3, minmax(0, 154px));
+  grid-template-rows: repeat(3, minmax(0, auto));
   gap: 18px;
 }
 
@@ -571,11 +571,11 @@ ul {
   stroke-dashoffset: 300;
   transition: none;
 }
-.flow-hl-wrap.is-visible .flow-underline line {
+.flow-underline.is-visible line {
   animation: drawLine 0.5s ease forwards 0s;
 }
-.flow-hl-wrap.is-visible .flow-star path {
-  animation: drawStar 0.8s ease forwards 0.6s;
+.flow-star.is-visible path {
+  animation: drawStar 0.6s ease forwards 0s;
 }
 @keyframes drawLine {
   to { stroke-dashoffset: 0; }
@@ -615,7 +615,7 @@ ul {
   box-shadow: var(--shadow-md);
   overflow: hidden;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
   min-height: 0;
   padding: 22px;
@@ -780,7 +780,8 @@ ul {
   transition: background .2s ease, border-color .2s ease, transform .15s ease, box-shadow .2s ease;
 }
 .tool-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.tool-item__icon { flex: none; width: 56px; height: 56px; display: grid; place-items: center; }
+.tool-item__icon { flex: none; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; align-self: center; }
+.tool-item__icon picture { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
 .tool-item__icon img { width: 100%; height: 100%; object-fit: contain; }
 .tool-item__body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .tool-item__title { font-size: 18px; font-weight: 700; color: var(--color-text-dark); }
@@ -829,7 +830,7 @@ ul {
 .flow {
   position: relative;
   background-color: var(--color-cream);
-  background-image: url('assets/section flow-bg-blue.jpg');
+  background-image: linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.08)), url('assets/section flow-bg-blue.jpg');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;

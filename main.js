@@ -165,18 +165,20 @@
    flow 섹션 — 말풍선 → 언더라인 → 별 순차 등장
    ========================================================= */
 (function initFlowSequence() {
-  const bubbleL = document.querySelector('.flow-bubble--l');
-  const bubbleR = document.querySelector('.flow-bubble--r');
-  const hlWrap  = document.querySelector('.flow-hl-wrap');
+  const bubbleL   = document.querySelector('.flow-bubble--l');
+  const bubbleR   = document.querySelector('.flow-bubble--r');
+  const underline = document.querySelector('.flow-underline');
+  const star      = document.querySelector('.flow-star');
   const trigger = bubbleL && (bubbleL.closest('.flow-head') || bubbleL);
   if (!trigger) return;
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       observer.disconnect();
-      bubbleL && bubbleL.classList.add('is-visible');
-      setTimeout(() => bubbleR && bubbleR.classList.add('is-visible'), 400);
-      setTimeout(() => hlWrap  && hlWrap.classList.add('is-visible'), 1300);
+      bubbleL   && bubbleL.classList.add('is-visible');
+      setTimeout(() => bubbleR   && bubbleR.classList.add('is-visible'),   200);
+      setTimeout(() => underline && underline.classList.add('is-visible'), 1500);
+      setTimeout(() => star      && star.classList.add('is-visible'),      2100);
     });
   }, { threshold: 0.3 });
   observer.observe(trigger);
